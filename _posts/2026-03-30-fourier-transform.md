@@ -28,8 +28,8 @@ $$X(f) = \int_{-\infty}^{\infty} x(t) e^{-i 2\pi f t} dt$$
 
 To ground this in reality, let's look at these variables through the lens of neuroscience, assuming we are applying the CTFT to a continuous-time neural voltage signal:
 
-* **$x(t)$**: The continuous-time signal itself (e.g., a neural recording), typically measured in millivolts (mV).
-* **$t$**: The time at which the signal is measured, with units in seconds (s).
-* **$dt$**: The infinitesimal integration step over time, measured in seconds (s).
-* **$f$**: The specific frequency variable being analyzed, measured in Hertz (Hz).
-* **$X(f)$**: The resulting output. This gives us the complex amplitude and phase of the signal at frequency $f$.
+* **$$x(t)$$**: The continuous-time signal itself (e.g., a neural recording), typically measured in millivolts (mV).
+* **$$t$$**: The time at which the signal is measured, with units in seconds (s).
+* **$$dt$$**: The infinitesimal integration step over time, measured in seconds (s).
+* **$$f$$**: The specific frequency variable being analyzed, measured in Hertz (Hz).
+* **$$X(f)$$**: The resulting output. This gives us the complex amplitude and phase of the signal at frequency $f$.
