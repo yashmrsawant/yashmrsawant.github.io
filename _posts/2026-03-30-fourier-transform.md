@@ -5,10 +5,10 @@ date: 2026-03-30
 categories: [Signal Processing, Time-Series Analysis]
 ---
 
-Welcome to this deep dive into the Fourier Transform. Whether you are analyzing electrical signals from the brain or building computational models, understanding how to transition between time and frequency is an indispensable skill.
+From analyzing raw electrical signals to building computational models, time-frequency analysis is an essential tool for decoding the complex inner workings of the brain.
 
 In this post, we will cover:
-1. **Introduction to the Fourier Transform:** The core intuition behind decomposing complex signals into simple waves.
+1. **Introduction to the Fourier Transform:** The core intuition behind decomposing real-world signals into simple waves.
 2. **From Math to Code:** Bridging the gap between the analytical Continuous-Time Fourier Transform (CTFT) and its computational implementation, the Fast Fourier Transform (FFT).
 3. **Scientific Applications:** How this mathematical breakthrough powers modern tools like Magnetic Resonance Imaging (MRI) and neural time-series analysis.
 
@@ -32,4 +32,4 @@ To ground this in reality, let's look at these variables through the lens of neu
 * **$$t$$**: The time at which the signal is measured, with units in seconds (s).
 * **$$dt$$**: The infinitesimal integration step over time, measured in seconds (s).
 * **$$f$$**: The specific frequency variable being analyzed, measured in Hertz (Hz).
-* **$$X(f)$$**: The resulting output. This gives us the complex amplitude and phase of the signal at frequency $f$.
+* **$$X(f)$$**: The resulting output. This gives us the complex amplitude and phase of the signal at frequency $$f$$.
