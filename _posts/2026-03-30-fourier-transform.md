@@ -12,7 +12,7 @@ $$X(f) = \int_{-\infty}^{\infty} x(t) e^{-i 2\pi f t} dt$$
 
 When applying this to a continuous-time neural voltage signal, denoted as $x(t)$:
 
-* **$x(t)$**: The continuous-time signal, with units in millivolts (mV).
-* **$t$**: Time, with units in seconds (s).
-* **$dt$**: The differential integration step over time, measured in seconds.
-* **$f$**: The frequency variable, measured in Hertz (Hz).
+* $$x(t)$$: The continuous-time signal, with units in millivolts (mV).
+* $$t$$: Time, with units in seconds (s).
+* $$dt$$: The differential integration step over time, measured in seconds.
+* $$f$$: The frequency variable, measured in Hertz (Hz).
