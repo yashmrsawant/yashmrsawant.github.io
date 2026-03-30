@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Fourier Transform"
+date: 2026-03-30
+categories: [signal processing, time-series analysis]
+---
+
 # Continuous-Time Fourier Transform (CTFT)
 
 The CTFT translates a continuous-time neural signal into a continuous-frequency spectrum.
