@@ -4,6 +4,7 @@ title: "The Fourier Transform: From Theory to Neural Applications"
 date: 2026-03-30
 categories: [Signal Processing, Time-Series Analysis]
 ---
+# The Fourier Transform: From Theory to Neural Applications
 
 From analyzing raw neural signals to building computational models, time-frequency analysis [[1]](#ref-1) is an essential tool for decoding the complex inner workings of the brain.
 
