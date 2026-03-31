@@ -5,7 +5,7 @@ date: 2026-03-30
 categories: [Signal Processing, Time-Series Analysis]
 ---
 
-From analyzing raw neural signals to building computational models, time-frequency analysis[[1]](#ref-1) is an essential tool for decoding the complex inner workings of the brain.
+From analyzing raw neural signals to building computational models, time-frequency analysis [[1]](#ref-1) is an essential tool for decoding the complex inner workings of the brain.
 
 In this post, we will cover:
 1. **Introduction to the Fourier Transform:** The core intuition behind decomposing real-world signals into simple waves.
