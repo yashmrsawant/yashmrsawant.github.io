@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        /* Exact Minima Theme Variables */
+        :root {
+            --text-color: #111111;
+            --background-color: #fdfdfd;
+            --brand-color: #2a7ae2;
+            --grey-color: #828282;
+            --grey-color-light: #e8e8e8;
+            --grey-color-dark: #222222;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--brand-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Minima Layout Container */
+        .wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Minima Header Styling (with the dark top border) */
+        .site-header {
+            border-top: 5px solid var(--grey-color-dark);
+            border-bottom: 1px solid var(--grey-color-light);
+            min-height: 56px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .site-header .wrapper {
+            width: 100%;
+        }
+
+        .site-title {
+            font-size: 26px;
+            font-weight: 300;
+            line-height: 54px;
+            letter-spacing: -1px;
+            margin: 0;
+        }
+
+        .site-title a {
+            color: var(--grey-color-dark);
+        }
+
+        /* Main Content Spacing */
+        .page-content {
+            padding: 30px 0 60px 0;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 400;
+            color: var(--text-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        /* Clean Code Blocks */
+        code {
+            background-color: #eef;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+            font-size: 0.85em;
+        }
+
+        pre {
+            background-color: #f8f8f8;
+            border: 1px solid var(--grey-color-light);
+            padding: 15px;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            border: none;
+        }
+
+        blockquote {
+            color: var(--grey-color);
+            border-left: 4px solid var(--grey-color-light);
+            padding-left: 15px;
+            margin-left: 0;
+            font-style: italic;
+        }
+
+        /* Prevent Math equations from breaking the mobile layout */
+        mjx-container {
+            overflow-x: auto;
+            overflow-y: hidden;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    
+    <header class="site-header">
+        <div class="wrapper">
+            <h1 class="site-title"><a href="/">{{ site.title | default: "Yash M Sawant" }}</a></h1>
+        </div>
+    </header>
+
+    <main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            {{ content }}
+        </div>
+    </main>
+
+</body>
+</html>
