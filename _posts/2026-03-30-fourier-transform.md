@@ -24,6 +24,10 @@ The operation is defined by the following integral, which compares our signal ag
 
 $$X(f) = \int_{-\infty}^{\infty} x(t) e^{-i 2\pi f t} dt$$
 
+To return to the time domain, we use the **Inverse Fourier Transform**:
+
+$$x(t) = \int_{-\infty}^{\infty} X(f) e^{i 2\pi f t} df$$
+
 ### Variables and Physical Intuition
 
 To ground this in reality, let's look at these variables through the lens of neuroscience, assuming we are applying the CTFT to a continuous-time neural voltage signal:
@@ -40,3 +44,5 @@ To ground this in reality, let's look at these variables through the lens of neu
 
 <div id="ref-1"></div>
 **[1]** Popescu, T. (1997). Time-frequency analysis, by L. Cohen, Prentice Hall Signal Processing Series, Prentice Hall, Englewood Cliffs, New Jersey, 1995 - Book review. *Control Engineering Practice, 5*, 292–294. [https://doi.org/10.1016/S0967-0661(97)90028-9](https://doi.org/10.1016/S0967-0661(97)90028-9)
+
+
