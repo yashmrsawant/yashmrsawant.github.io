@@ -26,7 +26,7 @@ $$X(f) = \int_{-\infty}^{\infty} x(t) e^{-i 2\pi f t} dt$$
 
 To return to the time domain, we use the **Inverse Fourier Transform**:
 
-$$x(t) = \int_{-\infty}^{\infty} X(f) e^{i 2\pi f t} df$$
+$$x(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} X(f) e^{i 2\pi f t} df$$
 
 ### Variables and Physical Intuition
 
