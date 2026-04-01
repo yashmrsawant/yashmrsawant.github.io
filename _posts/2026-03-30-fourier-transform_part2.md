@@ -2,7 +2,7 @@
 layout: default
 title: "The Fourier Transform: From Theory to Neural Applications - Part 2 (Computational Experiments)"
 date: 2026-03-30
-categories: [Signal Processing, Time-Series Analysis]
+categories: [signal-processing]
 ---
 # The Fourier Transform: From Theory to Neural Applications - Part 2 (Computational Experiments)
 
