@@ -10,7 +10,7 @@ From analyzing raw neural signals to building computational models, time-frequen
 
 In this post, we will cover:
 
-From Math to Code:** Bridging the gap between the analytical Continuous-Time Fourier Transform (CTFT) and its computational implementation, the Fast Fourier Transform (FFT).
+**From Math to Code:** Bridging the gap between the analytical Continuous-Time Fourier Transform (CTFT) and its computational implementation, the Fast Fourier Transform (FFT).
 
 ---
 
