@@ -47,5 +47,3 @@ To ground this in reality, let's look at these variables through the lens of neu
 <div id="ref-1"></div>
 **[1]** Popescu, T. (1997). Time-frequency analysis, by L. Cohen, Prentice Hall Signal Processing Series, Prentice Hall, Englewood Cliffs, New Jersey, 1995 - Book review. *Control Engineering Practice, 5*, 292–294. [https://doi.org/10.1016/S0967-0661(97)90028-9](https://doi.org/10.1016/S0967-0661(97)90028-9)
 
-<div id="ref-2"></div>
-**[2]** Sawant, Y. M. (2026). *Some Integral Theorems*. Scith Blogging. [Read the post here](https://yashmrsawant.github.io/integrals/2026/04/01/some-integral-theorems.html).
