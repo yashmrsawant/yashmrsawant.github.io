@@ -1,17 +1,16 @@
 ---
 layout: default
-title: "The Fourier Transform: From Theory to Neural Applications - Part 1 (Theory)"
+title: "The Fourier Transform: From Theory to Neural Applications - Part 3 (Neural Applications)"
 date: 2026-03-30
 categories: [Signal Processing, Time-Series Analysis]
 ---
-# The Fourier Transform: From Theory to Neural Applications - Part 1 (Theory)
+# The Fourier Transform: From Theory to Neural Applications - Part 3 (Neural applications)
 
 From analyzing raw neural signals to building computational models, time-frequency analysis [[1]](#ref-1) is an essential tool for decoding the complex inner workings of the brain.
 
 In this post, we will cover:
-1. **Introduction to the Fourier Transform:** The core intuition behind decomposing real-world signals into simple waves.
-2. **From Math to Code:** Bridging the gap between the analytical Continuous-Time Fourier Transform (CTFT) and its computational implementation, the Fast Fourier Transform (FFT).
-3. **Scientific Applications:** How this mathematical breakthrough powers modern tools like Magnetic Resonance Imaging (MRI) and neural time-series analysis.
+
+**Scientific Applications:** How this mathematical breakthrough powers modern tools like Magnetic Resonance Imaging (MRI) and neural time-series analysis.
 
 ---
 
@@ -28,6 +27,8 @@ $$X(f) = \int_{-\infty}^{\infty} x(t) e^{-i 2\pi f t} dt$$
 To return to the time domain, we use the **Inverse Fourier Transform**:
 
 $$x(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} X(f) e^{i 2\pi f t} df$$
+
+*(Note: For a deeper dive into the calculus and underlying theorems supporting these properties, refer to my previous post on [Integral Theorems](#ref-2)).*
 
 ### Variables and Physical Intuition
 
@@ -46,4 +47,5 @@ To ground this in reality, let's look at these variables through the lens of neu
 <div id="ref-1"></div>
 **[1]** Popescu, T. (1997). Time-frequency analysis, by L. Cohen, Prentice Hall Signal Processing Series, Prentice Hall, Englewood Cliffs, New Jersey, 1995 - Book review. *Control Engineering Practice, 5*, 292–294. [https://doi.org/10.1016/S0967-0661(97)90028-9](https://doi.org/10.1016/S0967-0661(97)90028-9)
 
-
+<div id="ref-2"></div>
+**[2]** Sawant, Y. M. (2026). *Some Integral Theorems*. Scith Blogging. [Read the post here](https://yashmrsawant.github.io/integrals/2026/04/01/some-integral-theorems.html).
