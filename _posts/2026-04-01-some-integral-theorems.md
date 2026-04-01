@@ -9,12 +9,13 @@ categories: [integrals-theorems]
 (a) If $$a > 0$$ and $$b$$ is real constant, then
 
 $$\int_{-\infty}^{\infty} dx (e^{-ax^2+bx})=\frac{1}{2}\sqrt{\frac{\pi}{a}}e^{b^2/(4a)}\text{ }$$
+
 <details style="cursor: pointer; padding: 10px; background-color: #f8f9fa; border-left: 4px solid #0969da; border-radius: 4px; margin-top: 15px;">
   <summary style="font-weight: 600; color: #0969da;">Click to show/hide the proof</summary>
   
   <br>
   
-  **Proof:**
+  *Proof:*
   
   First, we complete the square in the exponent:
   
