@@ -9,7 +9,7 @@ categories: [integrals-theorems]
 
 <div style="border: 1px solid #d0d7de; border-radius: 6px; padding: 20px; margin-bottom: 24px; background-color: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.04);" markdown="1">
 
-**(a)** If $$a > 0$$and$$b$$ is a real constant, then
+**(a)** If $$a > 0$$ and $$b$$ is a real constant, then
 
 $$
 \int_{-\infty}^{\infty} e^{-ax^2+bx} dx = \sqrt{\frac{\pi}{a}}e^{b^2/(4a)}
