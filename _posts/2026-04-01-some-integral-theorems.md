@@ -32,7 +32,8 @@ $$
   \int_{-\infty}^{\infty} e^{-a(x - \frac{b}{2a})^2 + \frac{b^2}{4a}} dx = e^{b^2/(4a)} \int_{-\infty}^{\infty} e^{-a(x - \frac{b}{2a})^2} dx
   $$
   
-  Now, perform a substitution let $$u = x - \frac{b}{2a}$$, so $$du = dx$$. The limits of integration remain $$-\infty$$to$$\infty$$:
+  Now, perform a substitution let $$u = x - \frac{b}{2a}$$, so $$du = dx$$. 
+  The limits of integration remain $$-\infty$$ to $$\infty$$:
   
   $$
   e^{b^2/(4a)} \int_{-\infty}^{\infty} e^{-au^2} du
@@ -41,7 +42,7 @@ $$
   We know the standard Gaussian integral evaluates to $$\sqrt{\frac{\pi}{a}}$$. Thus:
   
   $$
-  e^{b^2/(4a)} \sqrt{\frac{\pi}{a}}
+  \int_{-\infty}^{\infty} e^{-ax^2+bx} dx = e^{b^2/(4a)} \sqrt{\frac{\pi}{a}}
   $$
   
 </details>
