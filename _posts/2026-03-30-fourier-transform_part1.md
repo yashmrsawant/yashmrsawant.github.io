@@ -29,7 +29,7 @@ To return to the time domain, we use the **Inverse Fourier Transform**:
 
 $$x(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} X(f) e^{i 2\pi f t} df$$
 
-*(Note: For a deeper dive into the calculus and underlying theorems supporting these properties, refer to my post on [Integral Theorems](#ref-2)).*
+*(Note: For a deeper dive into the calculus and underlying theorems supporting these properties, refer to my post on [Integral Theorems](https://yashmrsawant.github.io/integrals-theorems/2026/04/01/some-integral-theorems.html)).*
 
 ### Variables and Physical Intuition
 
