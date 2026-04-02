@@ -16,12 +16,10 @@ $$
 $$
 
 <details style="cursor: pointer; padding: 10px; background-color: #f6f8fa; border-left: 4px solid #0969da; border-radius: 4px; margin-top: 15px;">
-  <summary style="font-weight: 600; color: #0969da;">Click to show/hide the proof</summary>
+  <summary style="font-weight: 600; color: #0969da;">Proof</summary>
   
   <br>
-  
-  *Proof:*
-  
+    
   First, we complete the square in the exponent:
   
   $$
@@ -49,23 +47,19 @@ $$
 </details>
 
 </div>
-
 
 <div style="border: 1px solid #d0d7de; border-radius: 6px; padding: 20px; margin-bottom: 24px; background-color: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.04);" markdown="1">
 
-**(b)** If $a > 0$ and $b$ is a real constant, then
+**(a)** Shorthand notation for integral of complex exponential:
 
-$$
-\int_{-\infty}^{\infty} e^{-ax^2+bx} dx = \sqrt{\frac{\pi}{a}}e^{b^2/(4a)}
-$$
+$$\int_{-\infty}^{\infty} \exp(-ixk)dx=2\pi\delta(k)$$
+where $$\delta(k)$$ is the dirac delta function.
 
 <details style="cursor: pointer; padding: 10px; background-color: #f6f8fa; border-left: 4px solid #0969da; border-radius: 4px; margin-top: 15px;">
-  <summary style="font-weight: 600; color: #0969da;">Click to show/hide the proof</summary>
+  <summary style="font-weight: 600; color: #0969da;">Proof</summary>
   
   <br>
-  
-  *Proof:*
-  
+    
   First, we complete the square in the exponent:
   
   $$
@@ -93,3 +87,4 @@ $$
 </details>
 
 </div>
+
