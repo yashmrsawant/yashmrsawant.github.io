@@ -85,3 +85,57 @@ where $$\delta(k)$$ is the Dirac delta function.
 </details>
 
 </div>
+
+<div style="border: 1px solid #d0d7de; border-radius: 6px; padding: 20px; margin-bottom: 24px; background-color: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.04);" markdown="1">
+
+**(c)** If $$\text{Re}(w) > 0$$ and $$t$$ is a real constant, then
+
+$$
+\int_{-\infty}^{\infty} e^{-i 2\pi f t} e^{-wf^2} df = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{t^2}{2\sigma^2}}
+$$
+
+where $$\sigma^2 = \frac{w}{2\pi^2}$$.
+
+<details style="cursor: pointer; padding: 10px; background-color: #f6f8fa; border-left: 4px solid #0969da; border-radius: 4px; margin-top: 15px;">
+  <summary style="font-weight: 600; color: #0969da;">Proof</summary>
+  
+  <br>
+    
+  First, we combine the exponents in the integrand:
+  
+  $$
+  \int_{-\infty}^{\infty} e^{-wf^2 - i 2\pi t f} df
+  $$
+  
+  We can evaluate this by applying the identity from **(a)**. Let our variable of integration be $$f$$ (instead of $$x$$), with constants $$a = w$$ and $$b = -i 2\pi t$$.
+  
+  Substituting these into the identity $$\int_{-\infty}^{\infty} e^{-ax^2+bx} dx = \sqrt{\frac{\pi}{a}}e^{b^2/(4a)}$$:
+  
+  $$
+  \int_{-\infty}^{\infty} e^{-wf^2 - i 2\pi t f} df = \sqrt{\frac{\pi}{w}} e^{(-i 2\pi t)^2 / (4w)}
+  $$
+  
+  Now, simplify the exponent:
+  
+  $$
+  \frac{(-i 2\pi t)^2}{4w} = \frac{-4\pi^2 t^2}{4w} = -\frac{\pi^2 t^2}{w}
+  $$
+  
+  This gives us the intermediate result:
+  
+  $$
+  \int_{-\infty}^{\infty} e^{-i 2\pi f t} e^{-wf^2} df = \sqrt{\frac{\pi}{w}} e^{-\frac{\pi^2 t^2}{w}}
+  $$
+  
+  Finally, we convert this back to a standard univariate Gaussian form by considering $$\sigma^2 = \frac{w}{2\pi^2}$$. 
+  This substitution implies $$w = 2\pi^2\sigma^2$$ and $$\frac{\pi^2}{w} = \frac{1}{2\sigma^2}$$. 
+  
+  Substituting these into our intermediate result:
+  
+  $$
+  \sqrt{\frac{\pi}{2\pi^2\sigma^2}} e^{-\frac{t^2}{2\sigma^2}} = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{t^2}{2\sigma^2}}
+  $$
+  
+</details>
+
+</div>
