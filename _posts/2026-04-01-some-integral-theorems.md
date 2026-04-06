@@ -140,63 +140,66 @@ where $$\sigma^2 = \frac{w}{2\pi^2}$$.
 
 </div>
 
+
 <div style="border: 1px solid #d0d7de; border-radius: 6px; padding: 20px; margin-bottom: 24px; background-color: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.04);" markdown="1">
 
-**(c)** For a sufficiently well-behaved function $x(t)$, in the limit as $\sigma \to 0$, the Gaussian kernel acts as a Dirac delta function. 
+**(e)** **Geometric Intuition and Proof for the Sifting Property of a Nascent Delta Function**
 
-*Note: To evaluate exactly to $x(a)$, the integral is standardly written with the Gaussian centered at $a$, or with the signal shifted as $x(a-t)$. The exact integral in your prompt actually evaluates to $x(-a)$. I have outlined the proof for both below to clarify.*
+We provide a visual proof for the following sifting property of a zero-mean Gaussian kernel.
+
+*Note: For maximum visual clarity, we have simplified the integral by letting the constant $a=0$ and the signal be unshifted $x(t)$, which is equivalent to evaluating the value exactly at $t=0$. The sifting property states:*
 
 $$
-\lim_{\sigma \to 0} \int_{-\infty}^{\infty} x(t) \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(t-a)^2}{2\sigma^2}} dt = x(a)
+\lim_{\sigma \to 0} \int_{-\infty}^{\infty} x(t) \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{t^2}{2\sigma^2}} dt = x(0)
 $$
+
+We will walk through the progression shown in the image below, using five aligned panels to demonstrate how a sequence of narrowing and talling Gaussian kernels extracts a single point from a signal function.
 
 <details style="cursor: pointer; padding: 10px; background-color: #f6f8fa; border-left: 4px solid #0969da; border-radius: 4px; margin-top: 15px;">
-  <summary style="font-weight: 600; color: #0969da;">Proof</summary>
+  <summary style="font-weight: 600; color: #0969da;">Geometric Proof</summary>
   
   <br>
     
-  First, we recognize the term $\frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{t^2}{2\sigma^2}}$ as the probability density function of a normal (Gaussian) distribution with mean $0$ and variance $\sigma^2$.
-  
-  As the variance $\sigma^2$ approaches $0$, the distribution becomes infinitely narrow and infinitely tall at $t = 0$, while its total integral (area under the curve) remains exactly $1$:
+  We denote the Gaussian kernel as $$g_\sigma(t) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{t^2}{2\sigma^2}}$$. For any value of $$\sigma$$, the total area under this red curve is always exactly $$1$$:
   
   $$
-  \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{t^2}{2\sigma^2}} dt = 1
+  \int_{-\infty}^{\infty} g_\sigma(t) dt = 1
   $$
   
-  In mathematics, this limit represents a nascent Dirac delta function, denoted as $\delta(t)$. Therefore:
+  Now, let's observe the behavior by considering five vertically aligned panels showing a common signal function $$x(t)$$ (the blue curve, defined as $$x(t) = \sin(t) + \cos(2t) + 3$$), and a sequence of decreasing $$\sigma$$ values. The integral is visualized as the area of the product $$x(t) \cdot g_\sigma(t)$$ (the lightly shaded red region).
+  
+  1.  **Panel 1: Broad Gaussian (large $$\sigma$$)**
+      * Here, $$\sigma$$ is large ($$\sigma_1 = 1.0$$). The red kernel is wide and has a low peak.
+      * **Geometric interpretation:** The integral calculates a weighted average of the signal over a very broad window.
+      
+  2.  **Panel 2: Narrows and Talls ($$\sigma_2 = \sigma_1 / 2$$)**
+      * The effective width is halved ($$\sigma_2 = 0.5$$). The kernel becomes narrower and twice as tall (preserving the area of 1).
+      * **Geometric interpretation:** The kernel concentrates more of its weighting closer to $$t=0$$. The shaded product area is shrinking inward.
+      
+  3.  **Panel 3: Narrows further ($$\sigma_3 = \sigma_2 / 2$$)**
+      * Width halves again ($$\sigma_3 = 0.25$$). The red kernel is a distinct, tight spike.
+      
+  4.  **Panel 4: Almost a Spike ($$\sigma_4 = \sigma_3 / 2$$)**
+      * Width halves one last time ($$\sigma_4 = 0.125$$). The red curve is extremely sharp.
+      
+  5.  **Panel 5: Limiting State: $$\sigma \to 0$$ (Dirac Delta)**
+      * As $$\sigma \to 0$$, the red kernel has become an infinitely narrow and infinitely high vertical line, which we denote as the Dirac delta function, $$\delta(t)$$.
+      * **Geometric interpretation:** As the red kernel continues to narrow, its shaded 'product' area with the blue signal must shrink. By the limit, the red 'line' has a width of exactly 0, meaning it can **only** weigh the height of the signal curve at that precise exact point. The value of the blue curve at this precise point is $x(0)$.
+      
+      Since the total 'weight' (area) of the Gaussian is fixed at $$1$$, and it only weighs the signal value $x(0)$, the result of the integral must be $$1 \times x(0)$$, or simply $$x(0)$$.
   
   $$
-  \lim_{\sigma \to 0} \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{t^2}{2\sigma^2}} = \delta(t)
+  \lim_{\sigma \to 0} \int_{-\infty}^{\infty} x(t) g_\sigma(t) dt = \int_{-\infty}^{\infty} x(t) \delta(t) dt = x(0)
   $$
   
-  The fundamental "sifting property" of the Dirac delta function states that integrating a function multiplied by $\delta(t-t_0)$ extracts the value of the function exactly at $t = t_0$.
-  
-  **Deriving the standard $x(a)$ form:**
-  If we shift the Gaussian so it is centered at $t = a$, the limit becomes $\delta(t-a)$. Substituting this into the integral:
-  
-  $$
-  \lim_{\sigma \to 0} \int_{-\infty}^{\infty} x(t) \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(t-a)^2}{2\sigma^2}} dt = \int_{-\infty}^{\infty} x(t) \delta(t-a) dt
-  $$
-  
-  By the sifting property, the delta function evaluates the integrand at $t = a$:
-  
-  $$
-  \int_{-\infty}^{\infty} x(t) \delta(t-a) dt = x(a)
-  $$
-
-  **Evaluating your specific equation:**
-  If we strictly evaluate your original expression using the unshifted Gaussian limit $\delta(t)$, we get:
-
-  $$
-  \lim_{\sigma \to 0} \int_{-\infty}^{\infty} x(t-a) \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{t^2}{2\sigma^2}} dt = \int_{-\infty}^{\infty} x(t-a) \delta(t) dt
-  $$
-
-  Here, the delta function is centered at $t = 0$, so it sifts out the value of the integrand $x(t-a)$ precisely at $t = 0$:
-
-  $$
-  \int_{-\infty}^{\infty} x(t-a) \delta(t) dt = x(0-a) = x(-a)
-  $$
+  The magnified inset on the final panel explicitly shows this single point being extracted.
   
 </details>
-
+    
+<p style="text-align: center; font-style: italic; color: #57606a;">
+Figure: Visually demonstrating how the sifting property works as a Gaussian kernel limits to a Dirac delta function.
+</p>
+<img src="image_0.png" alt="A sequence of five horizontally aligned panels illustrating how a narrowing Gaussian concentrates its area around t=0 to extract a single signal value x(0). The progression from broad to infinitely narrow effectively isolates and extracts the function's height at the origin." style="max-width: 100%; height: auto; border: 1px solid #d0d7de; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); display: block; margin: 0 auto 16px;">
+    
 </div>
+
