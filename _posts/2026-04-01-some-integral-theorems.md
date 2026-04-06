@@ -139,3 +139,64 @@ where $$\sigma^2 = \frac{w}{2\pi^2}$$.
 </details>
 
 </div>
+
+<div style="border: 1px solid #d0d7de; border-radius: 6px; padding: 20px; margin-bottom: 24px; background-color: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.04);" markdown="1">
+
+**(c)** For a sufficiently well-behaved function $x(t)$, in the limit as $\sigma \to 0$, the Gaussian kernel acts as a Dirac delta function. 
+
+*Note: To evaluate exactly to $x(a)$, the integral is standardly written with the Gaussian centered at $a$, or with the signal shifted as $x(a-t)$. The exact integral in your prompt actually evaluates to $x(-a)$. I have outlined the proof for both below to clarify.*
+
+$$
+\lim_{\sigma \to 0} \int_{-\infty}^{\infty} x(t) \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(t-a)^2}{2\sigma^2}} dt = x(a)
+$$
+
+<details style="cursor: pointer; padding: 10px; background-color: #f6f8fa; border-left: 4px solid #0969da; border-radius: 4px; margin-top: 15px;">
+  <summary style="font-weight: 600; color: #0969da;">Proof</summary>
+  
+  <br>
+    
+  First, we recognize the term $\frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{t^2}{2\sigma^2}}$ as the probability density function of a normal (Gaussian) distribution with mean $0$ and variance $\sigma^2$.
+  
+  As the variance $\sigma^2$ approaches $0$, the distribution becomes infinitely narrow and infinitely tall at $t = 0$, while its total integral (area under the curve) remains exactly $1$:
+  
+  $$
+  \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{t^2}{2\sigma^2}} dt = 1
+  $$
+  
+  In mathematics, this limit represents a nascent Dirac delta function, denoted as $\delta(t)$. Therefore:
+  
+  $$
+  \lim_{\sigma \to 0} \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{t^2}{2\sigma^2}} = \delta(t)
+  $$
+  
+  The fundamental "sifting property" of the Dirac delta function states that integrating a function multiplied by $\delta(t-t_0)$ extracts the value of the function exactly at $t = t_0$.
+  
+  **Deriving the standard $x(a)$ form:**
+  If we shift the Gaussian so it is centered at $t = a$, the limit becomes $\delta(t-a)$. Substituting this into the integral:
+  
+  $$
+  \lim_{\sigma \to 0} \int_{-\infty}^{\infty} x(t) \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(t-a)^2}{2\sigma^2}} dt = \int_{-\infty}^{\infty} x(t) \delta(t-a) dt
+  $$
+  
+  By the sifting property, the delta function evaluates the integrand at $t = a$:
+  
+  $$
+  \int_{-\infty}^{\infty} x(t) \delta(t-a) dt = x(a)
+  $$
+
+  **Evaluating your specific equation:**
+  If we strictly evaluate your original expression using the unshifted Gaussian limit $\delta(t)$, we get:
+
+  $$
+  \lim_{\sigma \to 0} \int_{-\infty}^{\infty} x(t-a) \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{t^2}{2\sigma^2}} dt = \int_{-\infty}^{\infty} x(t-a) \delta(t) dt
+  $$
+
+  Here, the delta function is centered at $t = 0$, so it sifts out the value of the integrand $x(t-a)$ precisely at $t = 0$:
+
+  $$
+  \int_{-\infty}^{\infty} x(t-a) \delta(t) dt = x(0-a) = x(-a)
+  $$
+  
+</details>
+
+</div>
