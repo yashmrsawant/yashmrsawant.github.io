@@ -216,13 +216,13 @@ $$
   
   <br>
 
-  To solve the integral $I(t) = \int_{-\infty}^{\infty} e^{-j\omega t} d\omega$, we can introduce a Gaussian convergence factor $e^{-a\omega^2}$ (where $a > 0$) to construct an integral that is easier to analytically evaluate:
+  To solve the integral $$I(t) = \int_{-\infty}^{\infty} e^{-j\omega t} d\omega$$, we can introduce a Gaussian convergence factor $$e^{-a\omega^2}$$ (where $$a > 0$$) to construct an integral that is easier to analytically evaluate:
   
   $$
   I_a(t) = \int_{-\infty}^{\infty} e^{-j\omega t - a\omega^2} d\omega
   $$
   
-  Notice that as $a \to 0$, $I_a(t) \to I(t)$. We can separate $I_a(t)$ into its real and imaginary parts using Euler's formula:
+  Notice that as $$a \to 0$$, $$I_a(t) \to I(t)$$. We can separate $$I_a(t)$$ into its real and imaginary parts using Euler's formula:
   
   $$
   I_a(t) = \int_{-\infty}^{\infty} \cos(\omega t) e^{-a\omega^2} d\omega - j \int_{-\infty}^{\infty} \sin(\omega t) e^{-a\omega^2} d\omega
@@ -234,15 +234,15 @@ $$
   I_a(t) = \int_{-\infty}^{\infty} \cos(\omega t) e^{-a\omega^2} d\omega
   $$
   
-  To evaluate this, we differentiate $I_a(t)$ with respect to $t$:
+  To evaluate this, we differentiate $$I_a(t)$$ with respect to $$t$$:
   
   $$
   \frac{dI_a(t)}{dt} = -\int_{-\infty}^{\infty} \omega \sin(\omega t) e^{-a\omega^2} d\omega
   $$
   
   We apply integration by parts, using the formula $\int u \, dv = uv - \int v \, du$. 
-  Let $u = \sin(\omega t)$ and $dv = -\omega e^{-a\omega^2} d\omega$. 
-  Taking the derivative and integral respectively, we get $du = t \cos(\omega t) d\omega$ and $v = \frac{1}{2a} e^{-a\omega^2}$.
+  Let $$u = \sin(\omega t)$$ and $$dv = -\omega e^{-a\omega^2} d\omega$$. 
+  Taking the derivative and integral respectively, we get $$du = t \cos(\omega t) d\omega$$ and $$v = \frac{1}{2a} e^{-a\omega^2}$$.
   
   Substituting these back into the formula yields:
   
@@ -250,7 +250,7 @@ $$
   \frac{dI_a(t)}{dt} = \left[ \frac{1}{2a} \sin(\omega t) e^{-a\omega^2} \right]_{-\infty}^{\infty} - \int_{-\infty}^{\infty} \left( \frac{1}{2a} e^{-a\omega^2} \right) t \cos(\omega t) d\omega
   $$
   
-  The boundary term evaluates to zero as $\omega \to \pm\infty$ because the exponential decay dominates the bounded sine function. Pulling the constants out of the remaining integral leaves:
+  The boundary term evaluates to zero as $$\omega \to \pm\infty$$ because the exponential decay dominates the bounded sine function. Pulling the constants out of the remaining integral leaves:
   
   $$
   \frac{dI_a(t)}{dt} = -\frac{t}{2a} \int_{-\infty}^{\infty} \cos(\omega t) e^{-a\omega^2} d\omega
@@ -286,7 +286,7 @@ $$
   I_a(t) = \sqrt{\frac{\pi}{a}} \exp\left( -\frac{t^2}{4a} \right)
   $$
   
-  Finally, to return to our original integral $I(t)$, we take the limit as $a \to 0$. We can rewrite our expression to match the standard definition of the Gaussian nascent Dirac delta function, $\delta(t) = \lim_{\sigma \to 0} \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{t^2}{2\sigma^2}}$. 
+  Finally, to return to our original integral $$I(t)$$, we take the limit as $$a \to 0$$. We can rewrite our expression to match the standard definition of the Gaussian nascent Dirac delta function, $\delta(t) = \lim_{\sigma \to 0} \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{t^2}{2\sigma^2}}$. 
   
   By letting the variance $2\sigma^2 = 4a$ (which means $\sigma = \sqrt{2a}$), we can extract $2\pi$:
   
@@ -294,7 +294,7 @@ $$
   I_a(t) = 2\pi \left[ \frac{1}{\sqrt{4\pi a}} \exp\left(-\frac{t^2}{4a}\right) \right]
   $$
   
-  As $a \to 0$, the bracketed term becomes exactly $\delta(t)$. Therefore:
+  As $$a \to 0$$, the bracketed term becomes exactly $$\delta(t)$$. Therefore:
   
   $$
   I(t) = \lim_{a \to 0} I_a(t) = 2\pi \delta(t)
