@@ -23,11 +23,11 @@ At its core, the CTFT acts as a mathematical prism. Just as a glass prism splits
 
 The operation is defined by the following integral, which compares our signal against complex sinusoids of every possible frequency:
 
-$$X(f) = \int_{-\infty}^{\infty} x(t) e^{-i 2\pi f t} dt$$
+$$X(f) = \int_{-\infty}^{\infty} x(t) e^{-i \omega t} dt$$
 
 To return to the time domain, we use the **Inverse Fourier Transform**:
 
-$$x(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} X(f) e^{i 2\pi f t} df$$
+$$x(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} X(f) e^{i \omega t} df$$
 
 *(Note: For a deeper dive into the calculus and underlying theorems supporting these properties, refer to my post on [Integral Theorems](https://yashmrsawant.github.io/integrals-theorems/2026/04/01/some-integral-theorems.html)).*
 
