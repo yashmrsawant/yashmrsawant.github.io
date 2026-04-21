@@ -33,6 +33,7 @@ Proof
 
 
 Fourier Transform and Its Inverse
+$$ 
 
 Given \( x(t) \), a continuous-time signal, the Fourier Transform is defined as:
 
@@ -293,8 +294,16 @@ $$
 x(t) = x(t)
 $$
 
-✔ The inversion theorem is proven.
+Note: If the below integral transform is used for computing the Fourier Transform:
+$$
+X(\omega) = \int_{-\infty}^{\infty} x(t) e^{-i \omega t} dt
+$$
 
+Then the Inverse Fourier transform is given by:
+
+$$
+x(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} X(\omega) e^{i \omega t} d\omega
+$$
 ---
 
 </details>
