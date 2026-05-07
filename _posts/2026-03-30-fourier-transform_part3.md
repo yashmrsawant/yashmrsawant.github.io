@@ -6,7 +6,7 @@ categories: [signal-processing]
 ---
 # The Fourier Transform: From Theory to Neural Applications - Part 3 (Neural applications)
 
-From analyzing raw neural signals to building computational models, time-frequency analysis [[1]](#ref-1) is an essential tool for decoding the complex inner workings of the brain. The 
+From analyzing raw neural signals to building computational models, time-frequency analysis [[1]](#ref-1) is an essential tool for decoding the complex inner workings of the brain. 
 
 In this post, we will cover:
 
