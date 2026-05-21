@@ -49,10 +49,9 @@ x(t) =
 X(f)\, e^{i 2\pi f t}\, df
 $$
 
----
-
+\\
 Substituting the Transform
-
+\\
 Substitute \( X(f) \) into the inverse transform:
 
 $$
