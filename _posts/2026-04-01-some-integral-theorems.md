@@ -33,7 +33,7 @@ Proof
 
 
 Fourier Transform and Its Inverse
-$$
+
 Given \( x(t) \), a continuous-time signal, the Fourier Transform is defined as:
 
 $$
@@ -51,7 +51,7 @@ $$
 
 ---
 
-### Substituting the Transform
+Substituting the Transform
 
 Substitute \( X(f) \) into the inverse transform:
 
