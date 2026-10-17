@@ -1,5 +1,39 @@
-title: Scith 
-description: Exploring scientific ideas with mathematical tools.
-theme: minima
-email: yashmrsawant4colab@gmail.com
-github_username: yashmrsawant
+title: Scith
+tagline: Exploring scientific ideas with mathematical tools
+description: >-
+  Personal scientific and mathematical blog by Yash M Sawant, PhD Candidate in Mathematical Sciences.
+  Covering signal processing, computational neuroscience, brain modelling, and deep learning.
+url: "https://yashmrsawant.github.io"
+baseurl: ""
+
+# Author information
+author:
+  name: Yash M Sawant
+  title: PhD Candidate in Mathematical Sciences
+  email: yashmrsawant4colab@gmail.com
+  github: yashmrsawant
+  bio: >-
+    PhD Candidate in Mathematical Sciences exploring the intersection of signal processing,
+    computational neuroscience, brain modelling, and deep learning.
+
+# Navigation
+header_pages:
+  - index.md
+  - archive.md
+  - about.md
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  math_engine: mathjax
+  syntax_highlighter: rouge
+
+# Permalink style for clean URLs
+permalink: /:categories/:year/:month/:day/:title.html
+
+# Exclude unneeded files from site build
+exclude:
+  - sync.sh
+  - README.md
+  - .DS_Store

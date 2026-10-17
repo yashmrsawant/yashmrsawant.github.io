@@ -1,5 +1,123 @@
-I am Yash M Sawant, PhD Candidate in Mathematical Sciences.
+---
+layout: default
+title: Home
+---
 
-Together we will explore some key scientific ideas in various topics such as signal processing, brain modelling, deep learning etc. using various computational and mathematical tools.
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-badge">
+    <span class="hero-badge-pulse"></span>
+    <span>PhD Candidate in Mathematical Sciences</span>
+  </div>
 
+  <h1 class="hero-title">
+    Decoding Science with <br>
+    <span class="hero-title-highlight">Mathematical Tools</span>
+  </h1>
 
+  <p class="hero-description">
+    Welcome to <strong>Scith</strong>. I am <strong>Yash M Sawant</strong>. Here, we delve into the rigorous mathematics and computational implementations behind signal processing, computational neuroscience, brain modelling, and modern machine learning.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#articles" class="btn-primary">
+      <span>Read Featured Article</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <polyline points="19 12 12 19 5 12"></polyline>
+      </svg>
+    </a>
+    <a href="{{ '/about.html' | relative_url }}" class="btn-secondary">
+      <span>About My Research</span>
+    </a>
+  </div>
+</section>
+
+<!-- Research Focus Pillars -->
+<section class="research-pillars">
+  <div class="section-header">
+    <p class="section-label">Core Domains</p>
+    <h2 class="section-title">Research & Conceptual Pillars</h2>
+  </div>
+
+  <div class="pillars-grid">
+    <div class="pillar-card">
+      <div class="pillar-icon">📡</div>
+      <h3 class="pillar-title">Signal Processing</h3>
+      <p class="pillar-desc">
+        Continuous and discrete Fourier analysis, time-frequency representations, filtering, and wave decomposition for real-world dynamic systems.
+      </p>
+    </div>
+
+    <div class="pillar-card">
+      <div class="pillar-icon">🧠</div>
+      <h3 class="pillar-title">Brain Modelling</h3>
+      <p class="pillar-desc">
+        Translating biological voltage signals and neural time-series into mathematical and dynamical systems models of cognitive computation.
+      </p>
+    </div>
+
+    <div class="pillar-card">
+      <div class="pillar-icon">⚡</div>
+      <h3 class="pillar-title">Deep Learning & Math</h3>
+      <p class="pillar-desc">
+        Exploring Gaussian integrals, high-dimensional probability, optimization dynamics, and theoretical foundations of representation learning.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Master Article Spotlight -->
+<section class="series-spotlight">
+  <div class="series-spotlight-card">
+    <span class="series-badge">Featured Longform Article</span>
+    <h3 class="series-card-title">
+      <a href="{{ '/posts/fourier-transform-theory-and-neural-applications.html' | relative_url }}" style="color: inherit; text-decoration: none;">
+        The Fourier Transform: Mathematical Foundations, Inversion Proofs, and Neural Applications
+      </a>
+    </h3>
+    <p class="series-card-desc">
+      A unified, rigorous exploration connecting functional analysis and the continuous-time transform to Gaussian inversion proofs, the algorithmic efficiency of the FFT, and biological time-series decoding in neuroscience.
+    </p>
+
+    <div class="series-parts-grid">
+      <a href="{{ '/posts/fourier-transform-theory-and-neural-applications.html#1-the-continuous-time-fourier-transform-ctft' | relative_url }}" class="series-part-link">
+        <span class="series-part-num">Section 1</span>
+        <span class="series-part-name">Continuous-Time Theory & Intuition</span>
+      </a>
+
+      <a href="{{ '/posts/fourier-transform-theory-and-neural-applications.html#2-rigorous-proof-of-the-fourier-inversion-theorem' | relative_url }}" class="series-part-link">
+        <span class="series-part-num">Section 2</span>
+        <span class="series-part-name">Proof of the Inversion Theorem</span>
+      </a>
+
+      <a href="{{ '/posts/fourier-transform-theory-and-neural-applications.html#4-neuroscience--neural-applications' | relative_url }}" class="series-part-link">
+        <span class="series-part-num">Section 3</span>
+        <span class="series-part-name">Neural Voltage & Brain Signals</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Latest Articles List -->
+<section class="recent-posts-section" id="articles">
+  <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+    <div>
+      <p class="section-label">Publications & Notes</p>
+      <h2 class="section-title">Latest Articles</h2>
+    </div>
+    <a href="{{ '/archive.html' | relative_url }}" style="font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 0.35rem;">
+      <span>Browse complete archive</span>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="posts-list">
+    {% for post in site.posts %}
+      {% include post-card.html %}
+    {% endfor %}
+  </div>
+</section>

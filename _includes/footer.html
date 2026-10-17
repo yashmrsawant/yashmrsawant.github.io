@@ -1,0 +1,80 @@
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-about">
+        <div class="footer-brand">
+          <span class="logo-mark">∫</span>
+          <span class="footer-title">{{ site.title }}</span>
+        </div>
+        <p class="footer-desc">
+          Exploring scientific ideas with mathematical rigor and computational tools. Written by <strong>{{ site.author.name }}</strong>, PhD Candidate in Mathematical Sciences.
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 class="footer-heading">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
+          <li><a href="{{ '/archive.html' | relative_url }}">All Articles</a></li>
+          <li><a href="{{ '/about.html' | relative_url }}">About & Research</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 class="footer-heading">Connect</h4>
+        <ul class="footer-links">
+          <li>
+            <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer">
+              GitHub ({{ site.author.github }})
+            </a>
+          </li>
+          <li>
+            <a href="mailto:{{ site.author.email }}">
+              {{ site.author.email }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; {{ 'now' | date: "%Y" }} {{ site.author.name }}. Published on GitHub Pages.
+      </p>
+      <a href="#top" class="back-to-top" aria-label="Back to top">
+        <span>Back to top</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="19" x2="12" y2="5"></line>
+          <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Interactive Scripts for Theme Toggle and Mobile Menu -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Theme Toggle logic
+      var themeToggleBtn = document.getElementById('themeToggle');
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', function() {
+          var currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+          var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+        });
+      }
+
+      // Mobile Menu Toggle logic
+      var mobileNavToggle = document.getElementById('mobileNavToggle');
+      var siteNav = document.getElementById('siteNav');
+      if (mobileNavToggle && siteNav) {
+        mobileNavToggle.addEventListener('click', function() {
+          var isExpanded = mobileNavToggle.getAttribute('aria-expanded') === 'true';
+          mobileNavToggle.setAttribute('aria-expanded', !isExpanded);
+          siteNav.classList.toggle('is-open');
+        });
+      }
+    });
+  </script>
+</footer>

@@ -1,0 +1,33 @@
+---
+layout: page
+title: "Articles Archive"
+subtitle: "Complete repository of mathematical expositions, notes, and computational experiments"
+permalink: /archive.html
+---
+
+<p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.05rem;">
+  Explore all published articles, sorted chronologically. All articles feature full LaTeX mathematical notation, proofs, and physical intuition.
+</p>
+
+{% for post in site.posts %}
+  {% capture current_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+  {% if current_year != previous_year %}
+    {% unless forloop.first %}</ul></div>{% endunless %}
+    <div class="archive-year-group">
+      <h3 class="archive-year-title">{{ current_year }}</h3>
+      <ul class="archive-list">
+    {% capture previous_year %}{{ current_year }}{% endcapture %}
+  {% endif %}
+
+  <li class="archive-item">
+    <a href="{{ post.url | relative_url }}" class="archive-item-title">{{ post.title }}</a>
+    <div class="archive-item-meta">
+      {% if post.categories %}
+        <span class="category-badge" style="font-size: 0.75rem; padding: 0.15rem 0.45rem;">{{ post.categories | first }}</span>
+      {% endif %}
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d" }}</time>
+    </div>
+  </li>
+
+  {% if forloop.last %}</ul></div>{% endif %}
+{% endfor %}

@@ -1,17 +1,17 @@
 ---
-layout: default
+layout: post
 title: "The Fourier Transform: From Theory to Neural Applications - Part 1 (Theory)"
 date: 2026-03-30
 categories: [signal-processing]
 ---
-# The Fourier Transform: From Theory to Neural Applications - Part 1 (Theory)
 
 From analyzing raw neural signals to building computational models, time-frequency analysis [[1]](#ref-1) is an essential tool for decoding the complex inner workings of the brain.
 
 In this post, we will cover:
 
-**Introduction to the Fourier Transform:** The core intuition behind decomposing real-world signals into simple waves.
-
+* **Introduction to the Fourier Transform:** The core intuition behind decomposing real-world signals into simple waves.
+* **Continuous-Time Mathematical Formulation:** Defining the forward and inverse CTFT.
+* **Physical Intuition:** Mapping mathematical variables directly to physiological voltage recordings.
 
 ---
 
@@ -27,23 +27,24 @@ $$X(\omega) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} x(t) e^{-i \omega t}
 
 To return to the time domain, we use the **Inverse Fourier Transform**:
 
-$$x(t) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} X(\omega) e^{i \omega t} df$$
+$$x(t) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} X(\omega) e^{i \omega t} d\omega$$
 
-*(Note: For a deeper dive into the calculus and underlying theorems supporting these properties, refer to my post on [Integral Theorems](https://yashmrsawant.github.io/integrals-theorems/2026/04/01/some-integral-theorems.html)).*
+*(Note: For a deeper dive into the calculus and underlying theorems supporting these properties, refer to my post on [Some Useful Gaussian Integrals & Fourier Inversion]({{ '/integrals-theorems/2026/04/01/some-integral-theorems.html' | relative_url }})).*
 
 ### Variables and Physical Intuition
 
 To ground this in reality, let's look at these variables through the lens of neuroscience, assuming we are applying the CTFT to a continuous-time neural voltage signal:
 
-* **$$x(t)$$**: The continuous-time signal itself (e.g., a neural recording), typically measured in millivolts (mV).
-* **$$t$$**: The time at which the signal is measured, with units in seconds (s).
-* **$$dt$$**: The infinitesimal integration step over time, measured in seconds (s).
-* **$$f$$**: The specific frequency variable being analyzed, measured in Hertz (Hz).
-* **$$X(f)$$**: The resulting output. This gives us the complex amplitude and phase of the signal at frequency $$f$$.
+* **$x(t)$**: The continuous-time signal itself (e.g., a local field potential or neural recording), typically measured in millivolts ($\text{mV}$).
+* **$t$**: The time at which the signal is measured, with units in seconds ($\text{s}$).
+* **$dt$**: The infinitesimal integration step over time, measured in seconds ($\text{s}$).
+* **$\omega$**: The angular frequency variable, measured in radians per second ($\text{rad/s}$), related to linear frequency by $\omega = 2\pi f$.
+* **$X(\omega)$**: The resulting complex spectrum. This gives us both amplitude (magnitude) and phase of the oscillation at frequency $\omega$.
 
 ---
 
 ## References
 
 <div id="ref-1"></div>
+
 **[1]** Popescu, T. (1997). Time-frequency analysis, by L. Cohen, Prentice Hall Signal Processing Series, Prentice Hall, Englewood Cliffs, New Jersey, 1995 - Book review. *Control Engineering Practice, 5*, 292–294. [https://doi.org/10.1016/S0967-0661(97)90028-9](https://doi.org/10.1016/S0967-0661(97)90028-9)
