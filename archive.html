@@ -5,14 +5,17 @@ subtitle: "Complete repository of mathematical expositions, notes, and computati
 permalink: /archive.html
 ---
 
-<p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.05rem;">
+<p style="color: var(--text-secondary); margin-bottom: 2.25rem; font-size: 1.05rem;">
   Explore all published articles, sorted chronologically. All articles feature full LaTeX mathematical notation, proofs, and physical intuition.
 </p>
 
 {% for post in site.posts %}
   {% capture current_year %}{{ post.date | date: "%Y" }}{% endcapture %}
   {% if current_year != previous_year %}
-    {% unless forloop.first %}</ul></div>{% endunless %}
+    {% unless forloop.first %}
+        </ul>
+      </div>
+    {% endunless %}
     <div class="archive-year-group">
       <h3 class="archive-year-title">{{ current_year }}</h3>
       <ul class="archive-list">
@@ -29,5 +32,8 @@ permalink: /archive.html
     </div>
   </li>
 
-  {% if forloop.last %}</ul></div>{% endif %}
+  {% if forloop.last %}
+      </ul>
+    </div>
+  {% endif %}
 {% endfor %}

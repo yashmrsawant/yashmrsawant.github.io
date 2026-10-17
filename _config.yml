@@ -18,8 +18,8 @@ author:
 
 # Navigation
 header_pages:
-  - index.md
-  - archive.md
+  - index.html
+  - archive.html
   - about.md
 
 # Build settings
