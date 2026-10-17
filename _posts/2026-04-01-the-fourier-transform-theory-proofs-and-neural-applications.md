@@ -51,7 +51,7 @@ To ground these abstract variables in physical experiments, consider a continuou
 * **$t$**: Continuous time measured in seconds ($\text{s}$).
 * **$dt$**: The infinitesimal time increment ($\text{s}$).
 * **$f$**: Frequency of oscillation measured in cycles per second or Hertz ($\text{Hz}$).
-* **$X(f)$**: The complex Fourier coefficient at frequency $f$. Its magnitude $|X(f)|$ represents amplitude/energy density ($\text{mV}/\text{Hz}$), and its argument $\arg(X(f))$ encodes the phase angle.
+* **$X(f)$**: The complex Fourier coefficient at frequency $f$. Its magnitude $\vert X(f) \vert$ represents amplitude and energy density (in $\text{mV}/\text{Hz}$), and its argument $\arg(X(f))$ encodes the phase angle.
 
 ---
 
