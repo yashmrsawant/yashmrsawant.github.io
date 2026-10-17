@@ -1,25 +1,24 @@
 ---
 layout: post
-title: "The Fourier Transform: Mathematical Foundations, Inversion Proofs, and Neural Applications"
+title: "The Fourier Transform: Theory, The Crucial Identity, and Inversion Proofs"
 date: 2026-04-01
-categories: [signal-processing, mathematics, neuroscience]
+categories: [signal-processing, mathematics]
 permalink: /posts/fourier-transform-theory-and-neural-applications.html
-excerpt: "A comprehensive journey through the Fourier Transform: from physical intuition and the Continuous-Time formulation, to a rigorous proof of the Inversion Theorem via Gaussian regularization, and computational applications in neural time-frequency decoding."
+excerpt: "A rigorous mathematical journey through the Fourier Transform: from continuous-time definitions and physical variables, to the crucial distribution identity for periodic complex exponentials, culminating in the complete Gaussian regularization proof of the Fourier Inversion Theorem."
 ---
 
-From analyzing raw neural recordings to constructing biophysical brain models, **time-frequency analysis** [[1]](#ref-1) is one of the most indispensable tools in computational science and mathematics. Complex physiological dynamics—such as collective rhythmic oscillations in cortical circuits—often appear noisy and erratic in the raw time domain. Projecting these signals into the frequency domain decomposes complex waveforms into elementary sinusoidal components, revealing the underlying physiological generators.
+From analyzing physical wave phenomena to modeling dynamical systems, the **Fourier Transform** is a foundational cornerstone of mathematical analysis and applied physics. It provides an exact, invertible mapping between the continuous time domain and the continuous frequency spectrum.
 
-In this unified exposition, we will build the Fourier Transform from first principles:
-1. **The Continuous-Time Fourier Transform (CTFT)** — Intuition, forward/inverse equations, and physical variables.
-2. **A Rigorous Proof of the Fourier Inversion Theorem** — Using parameterized Gaussian integrals, differentiation under the integral sign, and the Dirac delta limit.
-3. **The Computational Bridge (DFT & FFT)** — How continuous theory translates into discrete algorithms.
-4. **Applications to Neural Systems** — Decoding voltage dynamics, LFPs, and canonical oscillation frequency bands.
+In this exposition, we build the core mathematical framework from first principles:
+1. **The Continuous-Time Fourier Transform (CTFT)** — Definitions, symmetrical forms, and physical intuition.
+2. **The Crucial Identity** — The distributional Poisson summation identity for infinite trains of harmonic exponentials.
+3. **Rigorous Proof of the Fourier Inversion Theorem** — Step-by-step evaluation using parameterized Gaussian convergence factors, differentiation under the integral sign, and the Dirac delta limit.
 
 ---
 
 ## 1. The Continuous-Time Fourier Transform (CTFT)
 
-At its core, the Continuous-Time Fourier Transform acts as a mathematical prism. Just as an optical prism decomposes white light into its constituent spectral colors, the Fourier transform decomposes an arbitrary time-domain signal $x(t)$ into a continuous spectrum of complex exponentials.
+At its core, the Continuous-Time Fourier Transform decomposes an arbitrary continuous-time signal $x(t)$ into a continuous spectrum of complex exponential basis functions.
 
 ### The Mathematical Definition
 
@@ -43,36 +42,84 @@ Alternatively, under the non-unitary convention:
 
 $$X(\omega) = \int_{-\infty}^{\infty} x(t) e^{-i \omega t} \, dt, \qquad x(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} X(\omega) e^{i \omega t} \, d\omega$$
 
-### Variables and Physical Units in Neuroscience
+### Variables and Physical Units
 
-To ground these abstract variables in physical experiments, consider a continuous voltage recording (e.g., local field potential from an extracellular microelectrode):
+To ground these abstract mathematical variables in physical experiments (such as physiological voltage recordings):
 
-* **$x(t)$**: The continuous time-domain biological signal (voltage in millivolts, $\text{mV}$).
+* **$x(t)$**: The continuous time-domain signal (e.g., voltage in millivolts, $\text{mV}$).
 * **$t$**: Continuous time measured in seconds ($\text{s}$).
-* **$dt$**: The infinitesimal time increment ($\text{s}$).
-* **$f$**: Frequency of oscillation measured in cycles per second or Hertz ($\text{Hz}$).
-* **$X(f)$**: The complex Fourier coefficient at frequency $f$. Its magnitude $\vert X(f) \vert$ represents amplitude and energy density (in $\text{mV}/\text{Hz}$), and its argument $\arg(X(f))$ encodes the phase angle.
+* **$dt$**: Infinitesimal time integration step ($\text{s}$).
+* **$f$**: Linear oscillation frequency in cycles per second ($\text{Hz}$).
+* **$\omega$**: Radian angular frequency ($\text{rad/s}$), related to linear frequency by $\omega = 2\pi f$.
+* **$X(f)$**: The complex Fourier coefficient at frequency $f$. Its magnitude $\vert X(f) \vert$ represents the spectral amplitude/density (in $\text{mV}/\text{Hz}$), and its argument $\arg(X(f))$ encodes the phase angle.
 
 ---
 
-## 2. Rigorous Proof of the Fourier Inversion Theorem
+## 2. The Crucial Identity
 
-Why does applying the inverse transform to $X(f)$ faithfully reconstruct our original signal $x(t)$? Here, we evaluate the double integral using Gaussian convergence regularization.
+Before establishing the inversion theorem, we examine an essential identity that governs periodic harmonic sums in the sense of generalized functions (tempered distributions, $\mathcal{S}'(\mathbb{R})$):
+
+$$
+\boxed{
+\sum_{n=-\infty}^{\infty} e^{-inT\omega}
+=
+\frac{2\pi}{T}
+\sum_{k=-\infty}^{\infty}
+\delta\left(\omega - \frac{2\pi k}{T}\right)
+}
+$$
+
+### Understanding the Identity
+
+Let's understand why this identity holds and what it reveals geometrically:
+
+#### 1. Periodicity in the Frequency Domain
+The left-hand side is strictly periodic in $\omega$ with fundamental period $\Omega = \frac{2\pi}{T}$. To see this directly, shift $\omega$ by $\frac{2\pi}{T}$:
+
+$$
+e^{-inT\left(\omega + \frac{2\pi}{T}\right)}
+= e^{-inT\omega} \, e^{-i 2\pi n}
+= e^{-inT\omega}
+$$
+
+Since $n$ is an integer, $e^{-i 2\pi n} = \cos(2\pi n) - i\sin(2\pi n) = 1$ for all $n \in \mathbb{Z}$. 
+
+Consequently, the infinite sum repeats identically every $\frac{2\pi}{T}$:
+
+$$
+\sum_{n=-\infty}^{\infty} e^{-inT\left(\omega + \frac{2\pi}{T}\right)} = \sum_{n=-\infty}^{\infty} e^{-inT\omega}
+$$
+
+#### 2. Constructive vs. Destructive Interference
+* **At multiples of the fundamental frequency ($\omega = \frac{2\pi k}{T}$):**  
+  Every term in the series evaluates to $e^{-inT(2\pi k/T)} = e^{-i 2\pi n k} = 1$. The infinitely many terms sum in perfect phase, yielding a singular divergence (a Dirac impulse $\delta$) scaled by the density factor $\frac{2\pi}{T}$.
+* **Between the harmonics ($\omega \neq \frac{2\pi k}{T}$):**  
+  The complex phasors $e^{-inT\omega}$ rotate uniformly around the unit circle. When integrated against any smooth test function $\phi \in \mathcal{S}(\mathbb{R})$, the oscillatory terms destructively interfere and vanish identically.
+
+This identity is the distributional foundation connecting discrete sampling in time to periodic replication in frequency (the Poisson Summation Formula).
+
+---
+
+## 3. Rigorous Proof of the Fourier Inversion Theorem
+
+Why does applying the continuous inverse transform to $X(f)$ faithfully reconstruct the original signal $x(t)$? 
+
+We now evaluate the double integral using Gaussian convergence regularization.
 
 <details open>
 <summary>Click to view / collapse the complete step-by-step mathematical proof</summary>
 
 ### Step 1: Setting Up the Inversion Identity
 
-Substitute the definition of $X(f)$ directly into the inverse formula:
+Substitute the definition of the forward transform $X(f)$ directly into the inverse formula:
 
 $$x(t) = \int_{-\infty}^{\infty} \left( \int_{-\infty}^{\infty} x(\tau) e^{-i 2\pi f \tau} \, d\tau \right) e^{i 2\pi f t} \, df$$
 
-Assuming $x(t)$ is absolutely integrable ($x \in L^1(\mathbb{R})$), we interchange the order of integration via Fubini's theorem:
+Assuming $x \in L^1(\mathbb{R})$, we interchange the order of integration via Fubini's theorem:
 
 $$x(t) = \int_{-\infty}^{\infty} x(\tau) \left( \int_{-\infty}^{\infty} e^{i 2\pi f (t-\tau)} \, df \right) d\tau$$
 
-Let the time difference variable be:
+Let the time displacement variable be:
 
 $$u = t - \tau$$
 
@@ -84,7 +131,7 @@ $$\mathcal{K}(u) = \int_{-\infty}^{\infty} e^{i 2\pi f u} \, df$$
 
 ### Step 2: Euler's Expansion & Symmetry
 
-Using Euler's identity $e^{i \theta} = \cos\theta + i \sin\theta$:
+Using Euler's formula $e^{i \theta} = \cos\theta + i \sin\theta$:
 
 $$\int_{-\infty}^{\infty} e^{i 2\pi f u} \, df = \int_{-\infty}^{\infty} \cos(2\pi f u) \, df + i \int_{-\infty}^{\infty} \sin(2\pi f u) \, df$$
 
@@ -92,11 +139,11 @@ Because $\sin(2\pi f u)$ is an odd function of $f$ over the symmetric interval $
 
 $$\int_{-\infty}^{\infty} \sin(2\pi f u) \, df = 0$$
 
-The remaining cosine integral $\int_{-\infty}^{\infty} \cos(2\pi f u) \, df$ is oscillatory and does not converge in the Riemann sense. We introduce a convergence factor $e^{-a f^2}$ with regularizing parameter $a > 0$:
+The remaining cosine integral $\int_{-\infty}^{\infty} \cos(2\pi f u) \, df$ is oscillatory and does not converge in the standard Riemann sense. We introduce a Gaussian convergence factor $e^{-a f^2}$ with parameter $a > 0$:
 
 $$I_a(u) = \int_{-\infty}^{\infty} \cos(2\pi f u) e^{-a f^2} \, df$$
 
-Note that as $a \to 0^+$, the damping factor approaches $1$.
+As $a \to 0^+$, the damping factor approaches $1$.
 
 ---
 
@@ -148,7 +195,7 @@ $$I_a(u) = \sqrt{\frac{\pi}{a}} \exp\left( -\frac{\pi^2 u^2}{a} \right)$$
 
 ### Step 5: Limiting Behavior to the Dirac Delta
 
-Rewrite $I_a(u)$ by defining $\sigma^2 = \frac{a}{2\pi^2}$:
+Rewrite $I_a(u)$ by setting $\sigma^2 = \frac{a}{2\pi^2}$:
 
 $$I_a(u) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left( -\frac{u^2}{2\sigma^2} \right)$$
 
@@ -164,7 +211,7 @@ $$\lim_{a \to 0^+} I_a(u) = \delta(u) = \delta(t - \tau)$$
 
 ### Step 6: Reconstruction via the Sifting Property
 
-Returning to the full double integral:
+Substituting this result back into the full double integral:
 
 $$x(t) = \int_{-\infty}^{\infty} x(\tau) \, \delta(t - \tau) \, d\tau$$
 
@@ -175,72 +222,3 @@ $$\int_{-\infty}^{\infty} x(\tau) \, \delta(t - \tau) \, d\tau = x(t)$$
 $$\blacksquare \quad \text{The continuous inversion is mathematically verified.}$$
 
 </details>
-
----
-
-## 3. The Computational Bridge: Continuous to Discrete (DFT & FFT)
-
-In real laboratory experiments, computers cannot record continuous signals or evaluate infinite integrals. We record signals at discrete sampling instances $t_n = n \Delta t$, sampled at rate $f_s = \frac{1}{\Delta t}$.
-
-For a finite recording of $N$ discrete voltage measurements $x[n] = x(n \Delta t)$ for $n \in \{0, 1, \dots, N-1\}$, the continuous integral converts into the **Discrete Fourier Transform (DFT)**:
-
-$$X[k] = \sum_{n=0}^{N-1} x[n] \exp\left( -i \frac{2\pi}{N} k n \right), \quad k = 0, 1, \dots, N-1$$
-
-The sampled sequence is reconstructed via the **Inverse DFT**:
-
-$$x[n] = \frac{1}{N} \sum_{k=0}^{N-1} X[k] \exp\left( i \frac{2\pi}{N} k n \right)$$
-
-### The Fast Fourier Transform (FFT)
-
-Direct computation of the matrix multiplication takes $\mathcal{O}(N^2)$ operations. In 1965, Cooley and Tukey formalized the **Fast Fourier Transform (FFT)**, which exploits symmetries in the complex roots of unity $W_N = e^{-i 2\pi / N}$:
-
-$$W_N^{2k} = W_{N/2}^k$$
-
-By recursively splitting the sum into even and odd indices (radix-2 decimation-in-time), the complexity reduces to $\mathcal{O}(N \log N)$. This logarithmic efficiency allows neuroscientists to process megabytes of 128-channel neural data in real time.
-
----
-
-## 4. Neuroscience & Neural Applications
-
-Applying spectral transforms to continuous neural recordings unlocks the frequency spectrum of brain activity:
-
-```
-Frequency Spectrum of Brain Dynamics:
-┌─────────────────┬─────────────┬────────────────────────────────────────────────────────┐
-│ Band Name       │ Frequency   │ Physiological Role & Behavioral State                  │
-├─────────────────┼─────────────┼────────────────────────────────────────────────────────┤
-│ Delta (δ)       │ 0.5 – 4 Hz  │ Deep slow-wave sleep, broad cortical synchronization   │
-│ Theta (θ)       │ 4 – 8 Hz    │ Hippocampal spatial navigation, memory encoding        │
-│ Alpha (α)       │ 8 – 12 Hz   │ Posterior cortical idling, visual sensory gating       │
-│ Beta (β)        │ 12 – 30 Hz  │ Motor cortex active planning, sensorimotor stability   │
-│ Gamma (γ)       │ 30 – 100+ Hz│ Local interneuron circuits, binding, active processing │
-└─────────────────┴─────────────┴────────────────────────────────────────────────────────┘
-```
-
-### Local Field Potentials (LFPs) & Phase Synchronization
-
-When microelectrodes measure extracellular fields, the low-frequency component ($<300\text{ Hz}$) captures synaptic currents synchronized across thousands of neurons. 
-
-Through the Fourier transform, neuroscientists extract:
-1. **Power Spectral Density (PSD)**: Quantifying the energy distribution across oscillatory bands to measure cognitive engagement.
-2. **Phase-Amplitude Coupling (PAC)**: How the phase of a low-frequency rhythm (e.g., Theta at $6\text{ Hz}$) modulates the amplitude envelope of high-frequency bursts (e.g., Gamma at $80\text{ Hz}$), a foundational mechanism for working memory and neural coordination.
-
----
-
-## Conclusion & Future Directions
-
-The Fourier Transform is a bridge connecting abstract functional analysis with empirical biological discovery. Starting from simple sinusoidal decomposition, Gaussian convergence theorems guarantee exact mathematical inversion, while efficient FFT algorithms allow modern neuroscience to decode the computational principles of the brain.
-
-In future articles, we will explore **wavelet transforms** and **non-stationary dynamical systems** that extend time-frequency analysis beyond linear assumptions.
-
----
-
-## References
-
-<div id="ref-1"></div>
-
-**[1]** Popescu, T. (1997). Time-frequency analysis, by L. Cohen, Prentice Hall Signal Processing Series, Prentice Hall, Englewood Cliffs, New Jersey, 1995 - Book review. *Control Engineering Practice, 5*, 292–294. [https://doi.org/10.1016/S0967-0661(97)90028-9](https://doi.org/10.1016/S0967-0661(97)90028-9)
-
-**[2]** Cohen, L. (1995). *Time-Frequency Analysis*. Prentice Hall Signal Processing Series.
-
-**[3]** Buzsáki, G. (2006). *Rhythms of the Brain*. Oxford University Press.
