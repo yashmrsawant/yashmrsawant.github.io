@@ -10,8 +10,10 @@ excerpt: "A rigorous mathematical journey through the Fourier Transform: from co
 From analyzing physical wave phenomena to modeling dynamical systems, the **Fourier Transform** is a foundational cornerstone of mathematical analysis and applied physics. It provides an exact, invertible mapping between the continuous time domain and the continuous frequency spectrum.
 
 In this exposition, we build the core mathematical framework from first principles:
-1. **The Continuous-Time Fourier Transform (CTFT)** — Definitions, symmetrical forms, and physical intuition.
-2. **Discrete time Fourier Transform (DTFT)** — The distributional Poisson summation identity for infinite trains of harmonic exponentials.
+1. **The Continuous-Time Fourier Transform (CTFT)** — Physical intuition and proof.
+
+2. **Discrete time Fourier Transform (DTFT)** — How we transition from continuous to discrete signals?
+
 ---
 
 ## 1. The Continuous-Time Fourier Transform (CTFT)
