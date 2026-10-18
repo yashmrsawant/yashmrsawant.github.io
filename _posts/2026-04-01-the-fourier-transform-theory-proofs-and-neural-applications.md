@@ -277,6 +277,8 @@ e^{i2\pi f(t-\tau)}\,df
 \right)d\tau.
 $$
 
+$\textbf{Mathematical note}$: The interchange above is formal under the stated assumption alone. The integral over \(f\) is not absolutely convergent, so ordinary Fubini's theorem does not directly justify the interchange. Moreover, Fourier inversion does not hold pointwise for every \(x\in L^1(\mathbb{R})\) without additional hypotheses. 
+
 Let the time displacement variable be
 
 $$
@@ -290,7 +292,8 @@ $$
 \int_{-\infty}^{\infty}e^{i2\pi fu}\,df.
 $$
 
-**Mathematical note:** The interchange above is formal under the stated assumption alone. The integral over \(f\) is not absolutely convergent, so ordinary Fubini's theorem does not directly justify the interchange. Moreover, Fourier inversion does not hold pointwise for every \(x\in L^1(\mathbb{R})\) without additional hypotheses. The kernel \(\mathcal{K}(u)\) is interpreted in the distributional sense as the Dirac delta \(\delta(u)\).
+
+The kernel \(\mathcal{K}(u)\) is interpreted in the distributional sense as the Dirac delta \(\delta(u)\).
 
 
 
