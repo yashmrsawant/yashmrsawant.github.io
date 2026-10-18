@@ -5,6 +5,11 @@ date: 2026-04-01
 categories: [signal-processing, mathematics]
 permalink: /posts/fourier-transform-theory-and-neural-applications.html
 excerpt: "A rigorous mathematical journey through the Fourier Transform: from continuous-time definitions and physical variables, to the crucial distribution identity for periodic complex exponentials, culminating in the complete Gaussian regularization proof of the Fourier Inversion Theorem."
+outline:
+  - title: "The Continuous-Time Fourier Transform (CTFT)"
+    url: "#1-the-continuous-time-fourier-transform-ctft"
+  - title: "Discrete Time Fourier Transform (DTFT)"
+    url: "#2-discrete-time-fourier-transform-dtft"
 ---
 
 From analyzing physical wave phenomena to modeling dynamical systems, the **Fourier Transform** is a foundational cornerstone of mathematical analysis and applied physics. It provides an exact, invertible mapping between the continuous time domain and the continuous frequency spectrum.
@@ -243,7 +248,8 @@ We now evaluate the double integral using Gaussian convergence regularization.
 
 
 ---
-## 2. The Crucial Identity
+## 2. Discrete Time Fourier Transform (DTFT)
+<a id="2-the-crucial-identity"></a>
 
   We examine an essential identity that governs periodic harmonic sums in the sense of generalized functions (tempered distributions, $\mathcal{S}'(\mathbb{R})$):
 

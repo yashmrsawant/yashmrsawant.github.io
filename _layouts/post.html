@@ -52,9 +52,14 @@ layout: default
       <h3 class="series-title">Key Sections & Topics Covered</h3>
     </div>
     <ol class="series-list">
-      <li><a href="#1-the-continuous-time-fourier-transform-ctft">1. The Continuous-Time Fourier Transform (CTFT)</a></li>
-      <li><a href="#2-the-crucial-identity">2. The Crucial Identity</a></li>
-      <li><a href="#3-rigorous-proof-of-the-fourier-inversion-theorem">3. Rigorous Proof of the Fourier Inversion Theorem</a></li>
+      {% if page.outline %}
+        {% for item in page.outline %}
+          <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+        {% endfor %}
+      {% else %}
+        <li><a href="#1-the-continuous-time-fourier-transform-ctft">The Continuous-Time Fourier Transform (CTFT)</a></li>
+        <li><a href="#2-discrete-time-fourier-transform-dtft">Discrete Time Fourier Transform (DTFT)</a></li>
+      {% endif %}
     </ol>
   </div>
 
