@@ -357,6 +357,4 @@ By the sifting property of the Dirac delta distribution:
 
 $$\int_{-\infty}^{\infty} x(\tau) \, \delta(t - \tau) \, d\tau = x(t)$$
 
-$$\blacksquare \quad \text{The continuous inversion is mathematically verified.}$$
-
 </details>
