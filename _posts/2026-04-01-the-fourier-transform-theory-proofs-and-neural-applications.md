@@ -407,7 +407,7 @@ $$
 <p>As $a \to 0^+$, the variance $\sigma^2 \to 0$. The distribution narrows infinitely while maintaining unit area, which defines the Dirac delta distribution $\delta(u)$:</p>
 
 $$
-\lim_{a \to 0^+} I_a(u) = \int_{-\infty}^{\infty} cos(2\pi f u) df = \mathcal{K}(u) = \delta(u) = \delta(t - \tau)
+\lim_{a \to 0^+} I_a(u) = \int_{-\infty}^{\infty} \cos(2\pi f u) df = \mathcal{K}(u) = \delta(u) = \delta(t - \tau)
 $$
 
 <br>
