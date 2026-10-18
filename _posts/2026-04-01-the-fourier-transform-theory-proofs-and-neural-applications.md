@@ -247,7 +247,7 @@ We now evaluate the double integral using Gaussian convergence regularization.
 <details open>
 <summary>Click to view / collapse the complete step-by-step mathematical proof</summary>
 
-Step 1: Setting Up the Inversion Identity
+$\textbf{Step 1}$: Setting Up the Inversion Identity
 
 Substitute the definition of the forward transform \(X(f)\) directly into the inverse formula:
 
@@ -277,8 +277,6 @@ e^{i2\pi f(t-\tau)}\,df
 \right)d\tau.
 $$
 
-$\textbf{Mathematical note}$: The interchange above is formal under the stated assumption alone. The integral over \(f\) is not absolutely convergent, so ordinary Fubini's theorem does not directly justify the interchange. Moreover, Fourier inversion does not hold pointwise for every \(x\in L^1(\mathbb{R})\) without additional hypotheses. 
-
 Let the time displacement variable be
 
 $$
@@ -297,7 +295,7 @@ The kernel \(\mathcal{K}(u)\) is interpreted in the distributional sense as the 
 
 
 
-Step 2: Euler's Expansion & Symmetry
+$\textbf{Step 2}$: Euler's Expansion & Symmetry
 
 Using Euler's formula $e^{i \theta} = \cos\theta + i \sin\theta$:
 
@@ -315,7 +313,7 @@ As $a \to 0^+$, the damping factor approaches $1$.
 
 
 
-Step 3: Differentiating Under the Integral Sign
+$\textbf{Step 3}$: Differentiating Under the Integral Sign
 
 Differentiate $I_a(u)$ with respect to $u$ using Leibniz's rule:
 
@@ -341,7 +339,7 @@ $$\frac{dI_a(u)}{du} = -\frac{2\pi^2 u}{a} I_a(u)$$
 
 
 
-Step 4: Solving the Differential Equation
+$\textbf{Step 4}$: Solving the Differential Equation
 
 This is a first-order separable ordinary differential equation:
 
@@ -361,7 +359,7 @@ $$I_a(u) = \sqrt{\frac{\pi}{a}} \exp\left( -\frac{\pi^2 u^2}{a} \right)$$
 
 ---
 
-Step 5: Limiting Behavior to the Dirac Delta
+$\textbf{Step 5}$: Limiting Behavior to the Dirac Delta
 
 Rewrite $I_a(u)$ by setting $\sigma^2 = \frac{a}{2\pi^2}$:
 
@@ -377,7 +375,7 @@ $$\lim_{a \to 0^+} I_a(u) = \delta(u) = \delta(t - \tau)$$
 
 ---
 
-Step 6: Reconstruction via the Sifting Property
+$\textbf{Step 6}$: Reconstruction via the Sifting Property
 
 Substituting this result back into the full double integral:
 
