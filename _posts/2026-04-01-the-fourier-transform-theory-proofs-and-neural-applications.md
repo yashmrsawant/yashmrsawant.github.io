@@ -11,9 +11,7 @@ From analyzing physical wave phenomena to modeling dynamical systems, the **Four
 
 In this exposition, we build the core mathematical framework from first principles:
 1. **The Continuous-Time Fourier Transform (CTFT)** — Definitions, symmetrical forms, and physical intuition.
-2. **The Crucial Identity** — The distributional Poisson summation identity for infinite trains of harmonic exponentials.
-3. **Rigorous Proof of the Fourier Inversion Theorem** — Step-by-step evaluation using parameterized Gaussian convergence factors, differentiation under the integral sign, and the Dirac delta limit.
-
+2. **Discrete time Fourier Transform (DTFT)** — The distributional Poisson summation identity for infinite trains of harmonic exponentials.
 ---
 
 ## 1. The Continuous-Time Fourier Transform (CTFT)
