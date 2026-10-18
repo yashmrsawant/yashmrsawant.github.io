@@ -294,7 +294,7 @@ $$
 The kernel \(\mathcal{K}(u)\) is interpreted in the distributional sense as the Dirac delta \(\delta(u)\).
 
 
-$\textbf{}$
+$\\$
 
 $\textbf{Step 2}$: Euler's Expansion & Symmetry
 
@@ -376,7 +376,7 @@ As $a \to 0^+$, the variance $\sigma^2 \to 0$. The distribution narrows infinite
 
 $$\lim_{a \to 0^+} I_a(u) = \delta(u) = \delta(t - \tau)$$
 
----
+
 
 $\textbf{Step 6}$: Reconstruction via the Sifting Property
 
