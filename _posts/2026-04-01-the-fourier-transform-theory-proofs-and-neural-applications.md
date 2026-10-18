@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Fourier Transform: Theory for analyzing signals"
+title: "Theory for analyzing brain signals: Fourier Transform"
 date: 2026-04-01
 categories: [signal-processing, mathematics]
 permalink: /posts/fourier-transform-theory-and-neural-applications.html
