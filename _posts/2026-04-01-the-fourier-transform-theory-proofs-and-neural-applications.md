@@ -294,6 +294,8 @@ $$
 The kernel \(\mathcal{K}(u)\) is interpreted in the distributional sense as the Dirac delta \(\delta(u)\).
 
 $\text{ }$
+$\text{ }$
+
 $\textbf{Step 2}$: Euler's Expansion & Symmetry
 
 Using Euler's formula $e^{i \theta} = \cos\theta + i \sin\theta$:
@@ -310,9 +312,8 @@ $$I_a(u) = \int_{-\infty}^{\infty} \cos(2\pi f u) e^{-a f^2} \, df$$
 
 As $a \to 0^+$, the damping factor approaches $1$.
 
-
-
-
+$\text{ }$
+$\text{ }$
 $\textbf{Step 3}$: Differentiating Under the Integral Sign
 
 Differentiate $I_a(u)$ with respect to $u$ using Leibniz's rule:
@@ -337,9 +338,8 @@ Recognizing the original integral $I_a(u)$ on the right side:
 
 $$\frac{dI_a(u)}{du} = -\frac{2\pi^2 u}{a} I_a(u)$$
 
-
-
-
+$\text{ }$
+$\text{ }$
 $\textbf{Step 4}$: Solving the Differential Equation
 
 This is a first-order separable ordinary differential equation:
@@ -357,9 +357,8 @@ $$I_a(0) = \int_{-\infty}^{\infty} e^{-a f^2} \, df = \sqrt{\frac{\pi}{a}}$$
 Substituting $C = \sqrt{\frac{\pi}{a}}$:
 
 $$I_a(u) = \sqrt{\frac{\pi}{a}} \exp\left( -\frac{\pi^2 u^2}{a} \right)$$
-
-
-
+$\text{ }$
+$\text{ }$
 $\textbf{Step 5}$: Limiting Behavior to the Dirac Delta
 
 Rewrite $I_a(u)$ by setting $\sigma^2 = \frac{a}{2\pi^2}$:
