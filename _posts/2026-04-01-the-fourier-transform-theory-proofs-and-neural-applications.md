@@ -294,7 +294,7 @@ $$
 The kernel \(\mathcal{K}(u)\) is interpreted in the distributional sense as the Dirac delta \(\delta(u)\).
 
 
-$\\$
+$a\\$
 
 $\textbf{Step 2}$: Euler's Expansion & Symmetry
 
