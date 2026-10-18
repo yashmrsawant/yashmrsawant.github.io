@@ -181,7 +181,7 @@ $$
 
 ---
 
-### Bonus: The Fourier Series Proof
+### The Fourier Series Proof
 
 The same identity can be established directly using the Fourier series of a periodic Dirac comb.
 
@@ -247,7 +247,7 @@ We now evaluate the double integral using Gaussian convergence regularization.
 <details open>
 <summary>Click to view / collapse the complete step-by-step mathematical proof</summary>
 
-### Step 1: Setting Up the Inversion Identity
+**Step 1**: Setting Up the Inversion Identity
 
 Substitute the definition of the forward transform $X(f)$ directly into the inverse formula:
 
@@ -267,7 +267,7 @@ $$\mathcal{K}(u) = \int_{-\infty}^{\infty} e^{i 2\pi f u} \, df$$
 
 ---
 
-### Step 2: Euler's Expansion & Symmetry
+**Step 2**: Euler's Expansion & Symmetry
 
 Using Euler's formula $e^{i \theta} = \cos\theta + i \sin\theta$:
 
@@ -285,7 +285,7 @@ As $a \to 0^+$, the damping factor approaches $1$.
 
 ---
 
-### Step 3: Differentiating Under the Integral Sign
+**Step 3**: Differentiating Under the Integral Sign
 
 Differentiate $I_a(u)$ with respect to $u$ using Leibniz's rule:
 
@@ -311,7 +311,7 @@ $$\frac{dI_a(u)}{du} = -\frac{2\pi^2 u}{a} I_a(u)$$
 
 ---
 
-### Step 4: Solving the Differential Equation
+**Step 4**: Solving the Differential Equation
 
 This is a first-order separable ordinary differential equation:
 
@@ -331,7 +331,7 @@ $$I_a(u) = \sqrt{\frac{\pi}{a}} \exp\left( -\frac{\pi^2 u^2}{a} \right)$$
 
 ---
 
-### Step 5: Limiting Behavior to the Dirac Delta
+**Step 5**: Limiting Behavior to the Dirac Delta
 
 Rewrite $I_a(u)$ by setting $\sigma^2 = \frac{a}{2\pi^2}$:
 
@@ -347,7 +347,7 @@ $$\lim_{a \to 0^+} I_a(u) = \delta(u) = \delta(t - \tau)$$
 
 ---
 
-### Step 6: Reconstruction via the Sifting Property
+**Step 6**: Reconstruction via the Sifting Property
 
 Substituting this result back into the full double integral:
 
