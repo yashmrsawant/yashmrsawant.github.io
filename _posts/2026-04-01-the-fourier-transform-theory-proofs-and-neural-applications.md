@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Fourier Transform: Theory, The Crucial Identity, and Inversion Proofs"
+title: "The Fourier Transform: Theory for analyzing signals"
 date: 2026-04-01
 categories: [signal-processing, mathematics]
 permalink: /posts/fourier-transform-theory-and-neural-applications.html
