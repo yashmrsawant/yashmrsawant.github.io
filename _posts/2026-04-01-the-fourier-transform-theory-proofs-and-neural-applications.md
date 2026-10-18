@@ -295,6 +295,7 @@ The kernel \(\mathcal{K}(u)\) is interpreted in the distributional sense as the 
 
 
 
+
 $\textbf{Step 2}$: Euler's Expansion & Symmetry
 
 Using Euler's formula $e^{i \theta} = \cos\theta + i \sin\theta$:
@@ -310,6 +311,7 @@ The remaining cosine integral $\int_{-\infty}^{\infty} \cos(2\pi f u) \, df$ is 
 $$I_a(u) = \int_{-\infty}^{\infty} \cos(2\pi f u) e^{-a f^2} \, df$$
 
 As $a \to 0^+$, the damping factor approaches $1$.
+
 
 
 
@@ -339,6 +341,7 @@ $$\frac{dI_a(u)}{du} = -\frac{2\pi^2 u}{a} I_a(u)$$
 
 
 
+
 $\textbf{Step 4}$: Solving the Differential Equation
 
 This is a first-order separable ordinary differential equation:
@@ -357,7 +360,7 @@ Substituting $C = \sqrt{\frac{\pi}{a}}$:
 
 $$I_a(u) = \sqrt{\frac{\pi}{a}} \exp\left( -\frac{\pi^2 u^2}{a} \right)$$
 
----
+
 
 $\textbf{Step 5}$: Limiting Behavior to the Dirac Delta
 
