@@ -291,7 +291,7 @@ $$
 $$
 
 
-The kernel \(\mathcal{K}(u)\) is interpreted in the distributional sense as the Dirac delta \(\delta(u)\)
+The kernel \(\mathcal{K}(u)\) is interpreted in the distributional sense as the Dirac delta \(\delta(u)\) 
 
 
 $.\\$
