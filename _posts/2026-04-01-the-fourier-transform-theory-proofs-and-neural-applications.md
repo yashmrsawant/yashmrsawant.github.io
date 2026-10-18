@@ -53,193 +53,6 @@ To ground these abstract mathematical variables in physical experiments (such as
 * **$\omega$**: Radian angular frequency ($\text{rad/s}$), related to linear frequency by $\omega = 2\pi f$.
 * **$X(f)$**: The complex Fourier coefficient at frequency $f$. Its magnitude $\vert X(f) \vert$ represents the spectral amplitude/density (in $\text{mV}/\text{Hz}$), and its argument $\arg(X(f))$ encodes the phase angle.
 
----
-## 2. The Crucial Identity
-
-We examine an essential identity that governs periodic harmonic sums in the sense of generalized functions (tempered distributions, $\mathcal{S}'(\mathbb{R})$):
-
-$$
-\boxed{
-\sum_{n=-\infty}^{\infty} e^{-inT\omega}
-=
-\frac{2\pi}{T}
-\sum_{k=-\infty}^{\infty}
-\delta\left(\omega - \frac{2\pi k}{T}\right)
-}
-$$
-
-### Understanding the Identity
-
-Let's understand why this identity holds and what it reveals geometrically.
-
-#### 1. Periodicity in the Frequency Domain
-
-The left-hand side is periodic in $\omega$ with period $\Omega = \frac{2\pi}{T}$. To see this directly, shift $\omega$ by $\frac{2\pi}{T}$:
-
-$$
-\begin{aligned}
-e^{-inT\left(\omega + \frac{2\pi}{T}\right)}
-&= e^{-inT\omega} e^{-i 2\pi n} \\
-&= e^{-inT\omega}.
-\end{aligned}
-$$
-
-Since $n$ is an integer, $e^{-i 2\pi n} = \cos(2\pi n) - i\sin(2\pi n) = 1$ for all $n \in \mathbb{Z}$.
-
-Consequently, the infinite sum is periodic in the distributional sense, with period $\frac{2\pi}{T}$:
-
-$$
-\sum_{n=-\infty}^{\infty} e^{-inT\left(\omega + \frac{2\pi}{T}\right)} = \sum_{n=-\infty}^{\infty} e^{-inT\omega}.
-$$
-
-#### 2. Constructive vs. Destructive Interference
-
-- **At multiples of the fundamental frequency $\left(\omega = \frac{2\pi k}{T}\right)$:**
-
-  Every term in the series evaluates to:
-
-  $$
-  e^{-inT(2\pi k/T)} = e^{-i 2\pi n k} = 1.
-  $$
-
-  The terms therefore add in perfect phase. For a finite sum, the peak height grows with the number of terms. In the distributional limit, this concentration produces Dirac impulses with weight $\frac{2\pi}{T}$.
-
-- **Between the harmonics $\left(\omega \neq \frac{2\pi k}{T}\right)$:**
-
-  The complex phasors $e^{-inT\omega}$ rotate around the unit circle. Their finite sums remain bounded at any fixed frequency away from the harmonics. In the distributional limit, the oscillatory contributions cancel when integrated against a smooth, rapidly decreasing test function $\phi \in \mathcal{S}(\mathbb{R})$, leaving the Dirac impulse train.
-
-Importantly, this cancellation is understood in the distributional sense; the infinite series does not converge pointwise to zero between the harmonics.
-
----
-
-#### 3. The Finite-Sum Dirichlet Kernel
-
-To understand how the impulses emerge, truncate the infinite series to $2N+1$ terms:
-
-$$
-\begin{aligned}
-S_N(\omega)
-&= \sum_{n=-N}^{N} e^{-inT\omega} \\
-&= 1 + 2\sum_{n=1}^{N} \cos(nT\omega) \\
-&= \frac{\sin\left(\left(N + \frac{1}{2}\right) T\omega\right)}{\sin\left(\frac{1}{2} T\omega\right)}.
-\end{aligned}
-$$
-
-This is a Dirichlet kernel evaluated at $T\omega$.
-
-As $N \to \infty$, the finite sums exhibit the following behaviour:
-
-- **Peak height:** At $\omega_k = \frac{2\pi k}{T}$, the limiting value of the finite sum is obtained by continuity:
-
-  $$
-  S_N(\omega_k) = 2N + 1.
-  $$
-
-- **Main-lobe width:** The first zeros around $\omega = 0$ occur at:
-
-  $$
-  \omega = \pm\frac{2\pi}{(2N+1)T}.
-  $$
-
-  Thus, the width between the first zeros is:
-
-  $$
-  \Delta\omega = \frac{4\pi}{(2N+1)T}.
-  $$
-
-- **Distributional limit:** The peaks become increasingly narrow and tall. However, the Dirichlet kernel also has oscillatory side lobes, so its total signed area, rather than the area of its central lobe alone, is the relevant quantity for determining the impulse weight.
-
-#### 4. Why the Prefactor Is $\frac{2\pi}{T}$
-
-The exact prefactor can be determined by integrating the finite sum over one fundamental period, $\left[-\frac{\pi}{T}, \frac{\pi}{T}\right]$:
-
-$$
-\begin{aligned}
-\int_{-\pi/T}^{\pi/T} S_N(\omega) \, d\omega
-&= \sum_{n=-N}^{N} \int_{-\pi/T}^{\pi/T} e^{-inT\omega} \, d\omega \\
-&= \frac{2\pi}{T}.
-\end{aligned}
-$$
-
-For every nonzero integer $n$, the corresponding exponential integrates to zero over this interval. Only the constant term ($n=0$) contributes.
-
-Therefore, the signed area over one period is exactly $\frac{2\pi}{T}$, independently of $N$.
-
-In the distributional limit, the Dirichlet kernel converges to a periodic impulse train whose impulse weight is $\frac{2\pi}{T}$:
-
-$$
-\boxed{
-\lim_{N\to\infty} S_N(\omega)
-=
-\sum_{n=-\infty}^{\infty} e^{-inT\omega}
-=
-\frac{2\pi}{T}
-\sum_{k=-\infty}^{\infty}
-\delta\left(\omega - \frac{2\pi k}{T}\right)
-}
-$$
-
----
-
-### The Fourier Series Proof
-
-The same identity can be established directly using the Fourier series of a periodic Dirac comb.
-
-Let $\Omega = \frac{2\pi}{T}$. The periodic distribution
-
-$$
-\Sha_{\Omega}(\omega) = \sum_{k=-\infty}^{\infty} \delta(\omega - k\Omega)
-$$
-
-has Fourier series
-
-$$
-\Sha_{\Omega}(\omega) = \frac{1}{\Omega} \sum_{n=-\infty}^{\infty} e^{inT\omega}.
-$$
-
-To see why, the Fourier coefficients are
-
-$$
-\begin{aligned}
-c_n
-&= \frac{1}{\Omega} \int_{-\Omega/2}^{\Omega/2} \Sha_{\Omega}(\omega) e^{-inT\omega} \, d\omega \\
-&= \frac{1}{\Omega} \\
-&= \frac{T}{2\pi}.
-\end{aligned}
-$$
-
-The integration interval contains one impulse, at $\omega = 0$, and the exponential evaluates to $1$ there.
-
-Consequently,
-
-$$
-\begin{aligned}
-\sum_{k=-\infty}^{\infty} \delta\left(\omega - \frac{2\pi k}{T}\right)
-&= \frac{T}{2\pi} \sum_{n=-\infty}^{\infty} e^{inT\omega} \\
-&= \frac{T}{2\pi} \sum_{n=-\infty}^{\infty} e^{-inT\omega},
-\end{aligned}
-$$
-
-where the final equality follows by replacing $n$ with $-n$.
-
-Rearranging gives the required identity:
-
-$$
-\boxed{
-\sum_{n=-\infty}^{\infty} e^{-inT\omega}
-=
-\frac{2\pi}{T}
-\sum_{k=-\infty}^{\infty}
-\delta\left(\omega - \frac{2\pi k}{T}\right)
-}
-$$
-
-All infinite-series identities above are understood in the sense of tempered distributions.
-
----
-
-## 3. Rigorous Proof of the Fourier Inversion Theorem
-
 Why does applying the continuous inverse transform to $X(f)$ faithfully reconstruct the original signal $x(t)$? 
 
 We now evaluate the double integral using Gaussian convergence regularization.
@@ -427,3 +240,190 @@ $$
 \int_{-\infty}^{\infty} x(\tau) \, \delta(t - \tau) \, d\tau = x(t)
 $$
 </details>
+
+
+---
+## 2. The Crucial Identity
+
+We examine an essential identity that governs periodic harmonic sums in the sense of generalized functions (tempered distributions, $\mathcal{S}'(\mathbb{R})$):
+
+$$
+\boxed{
+\sum_{n=-\infty}^{\infty} e^{-inT\omega}
+=
+\frac{2\pi}{T}
+\sum_{k=-\infty}^{\infty}
+\delta\left(\omega - \frac{2\pi k}{T}\right)
+}
+$$
+
+### Understanding the Identity
+
+Let's understand why this identity holds and what it reveals geometrically.
+
+#### 1. Periodicity in the Frequency Domain
+
+The left-hand side is periodic in $\omega$ with period $\Omega = \frac{2\pi}{T}$. To see this directly, shift $\omega$ by $\frac{2\pi}{T}$:
+
+$$
+\begin{aligned}
+e^{-inT\left(\omega + \frac{2\pi}{T}\right)}
+&= e^{-inT\omega} e^{-i 2\pi n} \\
+&= e^{-inT\omega}.
+\end{aligned}
+$$
+
+Since $n$ is an integer, $e^{-i 2\pi n} = \cos(2\pi n) - i\sin(2\pi n) = 1$ for all $n \in \mathbb{Z}$.
+
+Consequently, the infinite sum is periodic in the distributional sense, with period $\frac{2\pi}{T}$:
+
+$$
+\sum_{n=-\infty}^{\infty} e^{-inT\left(\omega + \frac{2\pi}{T}\right)} = \sum_{n=-\infty}^{\infty} e^{-inT\omega}.
+$$
+
+#### 2. Constructive vs. Destructive Interference
+
+- **At multiples of the fundamental frequency $\left(\omega = \frac{2\pi k}{T}\right)$:**
+
+  Every term in the series evaluates to:
+
+  $$
+  e^{-inT(2\pi k/T)} = e^{-i 2\pi n k} = 1.
+  $$
+
+  The terms therefore add in perfect phase. For a finite sum, the peak height grows with the number of terms. In the distributional limit, this concentration produces Dirac impulses with weight $\frac{2\pi}{T}$.
+
+- **Between the harmonics $\left(\omega \neq \frac{2\pi k}{T}\right)$:**
+
+  The complex phasors $e^{-inT\omega}$ rotate around the unit circle. Their finite sums remain bounded at any fixed frequency away from the harmonics. In the distributional limit, the oscillatory contributions cancel when integrated against a smooth, rapidly decreasing test function $\phi \in \mathcal{S}(\mathbb{R})$, leaving the Dirac impulse train.
+
+Importantly, this cancellation is understood in the distributional sense; the infinite series does not converge pointwise to zero between the harmonics.
+
+---
+
+#### 3. The Finite-Sum Dirichlet Kernel
+
+To understand how the impulses emerge, truncate the infinite series to $2N+1$ terms:
+
+$$
+\begin{aligned}
+S_N(\omega)
+&= \sum_{n=-N}^{N} e^{-inT\omega} \\
+&= 1 + 2\sum_{n=1}^{N} \cos(nT\omega) \\
+&= \frac{\sin\left(\left(N + \frac{1}{2}\right) T\omega\right)}{\sin\left(\frac{1}{2} T\omega\right)}.
+\end{aligned}
+$$
+
+This is a Dirichlet kernel evaluated at $T\omega$.
+
+As $N \to \infty$, the finite sums exhibit the following behaviour:
+
+- **Peak height:** At $\omega_k = \frac{2\pi k}{T}$, the limiting value of the finite sum is obtained by continuity:
+
+  $$
+  S_N(\omega_k) = 2N + 1.
+  $$
+
+- **Main-lobe width:** The first zeros around $\omega = 0$ occur at:
+
+  $$
+  \omega = \pm\frac{2\pi}{(2N+1)T}.
+  $$
+
+  Thus, the width between the first zeros is:
+
+  $$
+  \Delta\omega = \frac{4\pi}{(2N+1)T}.
+  $$
+
+- **Distributional limit:** The peaks become increasingly narrow and tall. However, the Dirichlet kernel also has oscillatory side lobes, so its total signed area, rather than the area of its central lobe alone, is the relevant quantity for determining the impulse weight.
+
+#### 4. Why the Prefactor Is $\frac{2\pi}{T}$
+
+The exact prefactor can be determined by integrating the finite sum over one fundamental period, $\left[-\frac{\pi}{T}, \frac{\pi}{T}\right]$:
+
+$$
+\begin{aligned}
+\int_{-\pi/T}^{\pi/T} S_N(\omega) \, d\omega
+&= \sum_{n=-N}^{N} \int_{-\pi/T}^{\pi/T} e^{-inT\omega} \, d\omega \\
+&= \frac{2\pi}{T}.
+\end{aligned}
+$$
+
+For every nonzero integer $n$, the corresponding exponential integrates to zero over this interval. Only the constant term ($n=0$) contributes.
+
+Therefore, the signed area over one period is exactly $\frac{2\pi}{T}$, independently of $N$.
+
+In the distributional limit, the Dirichlet kernel converges to a periodic impulse train whose impulse weight is $\frac{2\pi}{T}$:
+
+$$
+\boxed{
+\lim_{N\to\infty} S_N(\omega)
+=
+\sum_{n=-\infty}^{\infty} e^{-inT\omega}
+=
+\frac{2\pi}{T}
+\sum_{k=-\infty}^{\infty}
+\delta\left(\omega - \frac{2\pi k}{T}\right)
+}
+$$
+
+---
+
+### The Fourier Series Proof
+
+The same identity can be established directly using the Fourier series of a periodic Dirac comb.
+
+Let $\Omega = \frac{2\pi}{T}$. The periodic distribution
+
+$$
+\Sha_{\Omega}(\omega) = \sum_{k=-\infty}^{\infty} \delta(\omega - k\Omega)
+$$
+
+has Fourier series
+
+$$
+\Sha_{\Omega}(\omega) = \frac{1}{\Omega} \sum_{n=-\infty}^{\infty} e^{inT\omega}.
+$$
+
+To see why, the Fourier coefficients are
+
+$$
+\begin{aligned}
+c_n
+&= \frac{1}{\Omega} \int_{-\Omega/2}^{\Omega/2} \Sha_{\Omega}(\omega) e^{-inT\omega} \, d\omega \\
+&= \frac{1}{\Omega} \\
+&= \frac{T}{2\pi}.
+\end{aligned}
+$$
+
+The integration interval contains one impulse, at $\omega = 0$, and the exponential evaluates to $1$ there.
+
+Consequently,
+
+$$
+\begin{aligned}
+\sum_{k=-\infty}^{\infty} \delta\left(\omega - \frac{2\pi k}{T}\right)
+&= \frac{T}{2\pi} \sum_{n=-\infty}^{\infty} e^{inT\omega} \\
+&= \frac{T}{2\pi} \sum_{n=-\infty}^{\infty} e^{-inT\omega},
+\end{aligned}
+$$
+
+where the final equality follows by replacing $n$ with $-n$.
+
+Rearranging gives the required identity:
+
+$$
+\boxed{
+\sum_{n=-\infty}^{\infty} e^{-inT\omega}
+=
+\frac{2\pi}{T}
+\sum_{k=-\infty}^{\infty}
+\delta\left(\omega - \frac{2\pi k}{T}\right)
+}
+$$
+
+All infinite-series identities above are understood in the sense of tempered distributions.
+
+---
+
