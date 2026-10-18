@@ -426,6 +426,4 @@ $$
 $$
 \int_{-\infty}^{\infty} x(\tau) \, \delta(t - \tau) \, d\tau = x(t)
 $$
-
-</details>
 </details>
