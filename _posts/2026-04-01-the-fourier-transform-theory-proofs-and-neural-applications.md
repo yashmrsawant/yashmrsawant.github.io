@@ -247,7 +247,7 @@ We now evaluate the double integral using Gaussian convergence regularization.
 <details open>
 <summary>Click to view / collapse the complete step-by-step mathematical proof</summary>
 
-**Step 1**: Setting Up the Inversion Identity
+### Step 1: Setting Up the Inversion Identity
 
 Substitute the definition of the forward transform $X(f)$ directly into the inverse formula:
 
@@ -311,7 +311,7 @@ $$\frac{dI_a(u)}{du} = -\frac{2\pi^2 u}{a} I_a(u)$$
 
 ---
 
-**Step 4**: Solving the Differential Equation
+##Step 4: Solving the Differential Equation
 
 This is a first-order separable ordinary differential equation:
 
