@@ -297,7 +297,7 @@ $$
 <br>
 
 <p>
-$\textbf{Step 2}$: Euler's Expansion & Symmetry<br>
+$\textbf{Step 2}$: Proof of $\mathcal{K}(u) = \delta(u)$<br>
 Using Euler's formula $e^{i \theta} = \cos\theta + i \sin\theta$:
 </p>
 
