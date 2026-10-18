@@ -291,10 +291,7 @@ $$
 $$
 
 
-The kernel \(\mathcal{K}(u)\) is interpreted in the distributional sense as the Dirac delta \(\delta(u)\) 
-
-
-$.\\$
+The kernel \(\mathcal{K}(u)\) is interpreted in the distributional sense as the Dirac delta \(\delta(u)\).
 
 $\textbf{Step 2}$: Euler's Expansion & Symmetry
 
@@ -378,7 +375,7 @@ $$\lim_{a \to 0^+} I_a(u) = \delta(u) = \delta(t - \tau)$$
 
 
 
-$\textbf{Step 6}$: Reconstruction via the Sifting Property
+$\textbf{Step 6}$: Reconstruction via the Sifting Property 
 
 Substituting this result back into the full double integral:
 
