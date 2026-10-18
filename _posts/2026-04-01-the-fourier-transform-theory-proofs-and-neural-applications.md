@@ -249,21 +249,48 @@ We now evaluate the double integral using Gaussian convergence regularization.
 
 Step 1: Setting Up the Inversion Identity
 
-Substitute the definition of the forward transform $X(f)$ directly into the inverse formula:
+Substitute the definition of the forward transform \(X(f)\) directly into the inverse formula:
 
-$$x(t) = \int_{-\infty}^{\infty} \left( \int_{-\infty}^{\infty} x(\tau) e^{-i 2\pi f \tau} \, d\tau \right) e^{i 2\pi f t} \, df$$
+$$
+x(t) = \int_{-\infty}^{\infty}
+\left(
+\int_{-\infty}^{\infty}
+x(\tau)e^{-i2\pi f\tau}\,d\tau
+\right)e^{i2\pi ft}\,df
+$$
 
-Assuming $x \in L^1(\mathbb{R})$, we interchange the order of integration via Fubini's theorem:
+Assume that \(x:\mathbb{R}\to\mathbb{C}\) is an absolutely integrable function, i.e.,
 
-$$x(t) = \int_{-\infty}^{\infty} x(\tau) \left( \int_{-\infty}^{\infty} e^{i 2\pi f (t-\tau)} \, df \right) d\tau$$
+$$
+\int_{-\infty}^{\infty}|x(t)|\,dt<\infty.
+$$
 
-Let the time displacement variable be:
+In other words, \(x\in L^1(\mathbb{R})\).
 
-$$u = t - \tau$$
+Interchanging the order of integration formally using Fubini's theorem gives
+
+$$
+x(t)=\int_{-\infty}^{\infty}x(\tau)
+\left(
+\int_{-\infty}^{\infty}
+e^{i2\pi f(t-\tau)}\,df
+\right)d\tau.
+$$
+
+Let the time displacement variable be
+
+$$
+u=t-\tau.
+$$
 
 We must now evaluate the inner oscillatory integral:
 
-$$\mathcal{K}(u) = \int_{-\infty}^{\infty} e^{i 2\pi f u} \, df$$
+$$
+\mathcal{K}(u)=
+\int_{-\infty}^{\infty}e^{i2\pi fu}\,df.
+$$
+
+**Mathematical note:** The interchange above is formal under the stated assumption alone. The integral over \(f\) is not absolutely convergent, so ordinary Fubini's theorem does not directly justify the interchange. Moreover, Fourier inversion does not hold pointwise for every \(x\in L^1(\mathbb{R})\) without additional hypotheses. The kernel \(\mathcal{K}(u)\) is interpreted in the distributional sense as the Dirac delta \(\delta(u)\).
 
 
 
