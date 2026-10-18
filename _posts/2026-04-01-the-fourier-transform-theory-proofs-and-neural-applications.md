@@ -265,7 +265,7 @@ We must now evaluate the inner oscillatory integral:
 
 $$\mathcal{K}(u) = \int_{-\infty}^{\infty} e^{i 2\pi f u} \, df$$
 
----
+
 
 Step 2: Euler's Expansion & Symmetry
 
@@ -283,7 +283,7 @@ $$I_a(u) = \int_{-\infty}^{\infty} \cos(2\pi f u) e^{-a f^2} \, df$$
 
 As $a \to 0^+$, the damping factor approaches $1$.
 
----
+
 
 Step 3: Differentiating Under the Integral Sign
 
@@ -309,7 +309,7 @@ Recognizing the original integral $I_a(u)$ on the right side:
 
 $$\frac{dI_a(u)}{du} = -\frac{2\pi^2 u}{a} I_a(u)$$
 
----
+
 
 Step 4: Solving the Differential Equation
 
