@@ -247,9 +247,10 @@ We now evaluate the double integral using Gaussian convergence regularization.
 <details open>
 <summary>Click to view / collapse the complete step-by-step mathematical proof</summary>
 
-$\textbf{Step 1}$: Setting Up the Inversion Identity
-
-Substitute the definition of the forward transform \(X(f)\) directly into the inverse formula:
+<p>
+$\textbf{Step 1}$: Setting Up the Inversion Identity<br>
+Substitute the definition of the forward transform $X(f)$ directly into the inverse formula:
+</p>
 
 $$
 x(t) = \int_{-\infty}^{\infty}
@@ -259,15 +260,16 @@ x(\tau)e^{-i2\pi f\tau}\,d\tau
 \right)e^{i2\pi ft}\,df
 $$
 
-Assume that \(x:\mathbb{R}\to\mathbb{C}\) is an absolutely integrable function, i.e.,
+<p>Assume that $x:\mathbb{R}\to\mathbb{C}$ is an absolutely integrable function, i.e.,</p>
 
 $$
 \int_{-\infty}^{\infty}|x(t)|\,dt<\infty.
 $$
 
-In other words, \(x\in L^1(\mathbb{R})\).
-
+<p>
+In other words, $x\in L^1(\mathbb{R})$.<br>
 Interchanging the order of integration formally using Fubini's theorem gives
+</p>
 
 $$
 x(t)=\int_{-\infty}^{\infty}x(\tau)
@@ -277,117 +279,153 @@ e^{i2\pi f(t-\tau)}\,df
 \right)d\tau.
 $$
 
-Let the time displacement variable be
+<p>Let the time displacement variable be</p>
 
 $$
 u=t-\tau.
 $$
 
-We must now evaluate the inner oscillatory integral:
+<p>We must now evaluate the inner oscillatory integral:</p>
 
 $$
 \mathcal{K}(u)=
 \int_{-\infty}^{\infty}e^{i2\pi fu}\,df.
 $$
 
+<p>The kernel $\mathcal{K}(u)$ is interpreted in the distributional sense as the Dirac delta $\delta(u)$.</p>
 
-The kernel \(\mathcal{K}(u)\) is interpreted in the distributional sense as the Dirac delta \(\delta(u)\).
+<br>
 
-$\text{ }$
-$\text{ }$
-
-$\textbf{Step 2}$: Euler's Expansion & Symmetry
-
+<p>
+$\textbf{Step 2}$: Euler's Expansion & Symmetry<br>
 Using Euler's formula $e^{i \theta} = \cos\theta + i \sin\theta$:
+</p>
 
-$$\int_{-\infty}^{\infty} e^{i 2\pi f u} \, df = \int_{-\infty}^{\infty} \cos(2\pi f u) \, df + i \int_{-\infty}^{\infty} \sin(2\pi f u) \, df$$
+$$
+\int_{-\infty}^{\infty} e^{i 2\pi f u} \, df = \int_{-\infty}^{\infty} \cos(2\pi f u) \, df + i \int_{-\infty}^{\infty} \sin(2\pi f u) \, df
+$$
 
-Because $\sin(2\pi f u)$ is an odd function of $f$ over the symmetric interval $(-\infty, \infty)$, the imaginary term vanishes identically:
+<p>Because $\sin(2\pi f u)$ is an odd function of $f$ over the symmetric interval $(-\infty, \infty)$, the imaginary term vanishes identically:</p>
 
-$$\int_{-\infty}^{\infty} \sin(2\pi f u) \, df = 0$$
+$$
+\int_{-\infty}^{\infty} \sin(2\pi f u) \, df = 0
+$$
 
-The remaining cosine integral $\int_{-\infty}^{\infty} \cos(2\pi f u) \, df$ is oscillatory and does not converge in the standard Riemann sense. We introduce a Gaussian convergence factor $e^{-a f^2}$ with parameter $a > 0$:
+<p>The remaining cosine integral $\int_{-\infty}^{\infty} \cos(2\pi f u) \, df$ is oscillatory and does not converge in the standard Riemann sense. We introduce a Gaussian convergence factor $e^{-a f^2}$ with parameter $a > 0$:</p>
 
-$$I_a(u) = \int_{-\infty}^{\infty} \cos(2\pi f u) e^{-a f^2} \, df$$
+$$
+I_a(u) = \int_{-\infty}^{\infty} \cos(2\pi f u) e^{-a f^2} \, df
+$$
 
-As $a \to 0^+$, the damping factor approaches $1$.
+<p>As $a \to 0^+$, the damping factor approaches $1$.</p>
 
-$\text{ }$
-$\text{ }$
+<br>
 
-$\textbf{Step 3}$: Differentiating Under the Integral Sign
-
+<p>
+$\textbf{Step 3}$: Differentiating Under the Integral Sign<br>
 Differentiate $I_a(u)$ with respect to $u$ using Leibniz's rule:
+</p>
 
-$$\frac{dI_a(u)}{du} = -\int_{-\infty}^{\infty} 2\pi f \sin(2\pi f u) e^{-a f^2} \, df$$
+$$
+\frac{dI_a(u)}{du} = -\int_{-\infty}^{\infty} 2\pi f \sin(2\pi f u) e^{-a f^2} \, df
+$$
 
-We apply integration by parts $\int U \, dV = UV - \int V \, dU$:
+<p>We apply integration by parts $\int U \, dV = UV - \int V \, dU$:</p>
 
-$$\text{Let } U = \sin(2\pi f u) \implies dU = 2\pi u \cos(2\pi f u) \, df$$
+$$
+\text{Let } U = \sin(2\pi f u) \implies dU = 2\pi u \cos(2\pi f u) \, df
+$$
 
-$$\text{Let } dV = -2\pi f e^{-a f^2} \, df \implies V = \frac{\pi}{a} e^{-a f^2}$$
+$$
+\text{Let } dV = -2\pi f e^{-a f^2} \, df \implies V = \frac{\pi}{a} e^{-a f^2}
+$$
 
-Evaluating the boundary term:
+<p>Evaluating the boundary term:</p>
 
-$$\left[ U V \right]_{-\infty}^{\infty} = \left[ \frac{\pi}{a} \sin(2\pi f u) e^{-a f^2} \right]_{-\infty}^{\infty} = 0$$
+$$
+\left[ U V \right]_{-\infty}^{\infty} = \left[ \frac{\pi}{a} \sin(2\pi f u) e^{-a f^2} \right]_{-\infty}^{\infty} = 0
+$$
 
-Therefore:
+<p>Therefore:</p>
 
-$$\frac{dI_a(u)}{du} = -\int_{-\infty}^{\infty} \left( \frac{\pi}{a} e^{-a f^2} \right) \left( 2\pi u \cos(2\pi f u) \right) df = -\frac{2\pi^2 u}{a} \int_{-\infty}^{\infty} \cos(2\pi f u) e^{-a f^2} \, df$$
+$$
+\frac{dI_a(u)}{du} = -\int_{-\infty}^{\infty} \left( \frac{\pi}{a} e^{-a f^2} \right) \left( 2\pi u \cos(2\pi f u) \right) df = -\frac{2\pi^2 u}{a} \int_{-\infty}^{\infty} \cos(2\pi f u) e^{-a f^2} \, df
+$$
 
-Recognizing the original integral $I_a(u)$ on the right side:
+<p>Recognizing the original integral $I_a(u)$ on the right side:</p>
 
-$$\frac{dI_a(u)}{du} = -\frac{2\pi^2 u}{a} I_a(u)$$
+$$
+\frac{dI_a(u)}{du} = -\frac{2\pi^2 u}{a} I_a(u)
+$$
 
-$\text{ }$
-$\text{ }$
+<br>
 
-$\textbf{Step 4}$: Solving the Differential Equation
-
+<p>
+$\textbf{Step 4}$: Solving the Differential Equation<br>
 This is a first-order separable ordinary differential equation:
+</p>
 
-$$\frac{dI_a(u)}{I_a(u)} = -\frac{2\pi^2 u}{a} \, du$$
+$$
+\frac{dI_a(u)}{I_a(u)} = -\frac{2\pi^2 u}{a} \, du
+$$
 
-Integrating both sides:
+<p>Integrating both sides:</p>
 
-$$\ln I_a(u) = -\frac{\pi^2 u^2}{a} + C' \implies I_a(u) = C \exp\left( -\frac{\pi^2 u^2}{a} \right)$$
+$$
+\ln I_a(u) = -\frac{\pi^2 u^2}{a} + C' \implies I_a(u) = C \exp\left( -\frac{\pi^2 u^2}{a} \right)
+$$
 
-To determine the constant $C$, evaluate $I_a(u)$ at $u = 0$:
+<p>To determine the constant $C$, evaluate $I_a(u)$ at $u = 0$:</p>
 
-$$I_a(0) = \int_{-\infty}^{\infty} e^{-a f^2} \, df = \sqrt{\frac{\pi}{a}}$$
+$$
+I_a(0) = \int_{-\infty}^{\infty} e^{-a f^2} \, df = \sqrt{\frac{\pi}{a}}
+$$
 
-Substituting $C = \sqrt{\frac{\pi}{a}}$:
+<p>Substituting $C = \sqrt{\frac{\pi}{a}}$:</p>
 
-$$I_a(u) = \sqrt{\frac{\pi}{a}} \exp\left( -\frac{\pi^2 u^2}{a} \right)$$
+$$
+I_a(u) = \sqrt{\frac{\pi}{a}} \exp\left( -\frac{\pi^2 u^2}{a} \right)
+$$
 
-$\text{ }$
-$\text{ }$
+<br>
 
-$\textbf{Step 5}$: Limiting Behavior to the Dirac Delta
-
+<p>
+$\textbf{Step 5}$: Limiting Behavior to the Dirac Delta<br>
 Rewrite $I_a(u)$ by setting $\sigma^2 = \frac{a}{2\pi^2}$:
+</p>
 
-$$I_a(u) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left( -\frac{u^2}{2\sigma^2} \right)$$
+$$
+I_a(u) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left( -\frac{u^2}{2\sigma^2} \right)
+$$
 
-This is precisely the normalized Gaussian probability density function with total area equal to 1 for all $a > 0$:
+<p>This is precisely the normalized Gaussian probability density function with total area equal to $1$ for all $a > 0$:</p>
 
-$$\int_{-\infty}^{\infty} I_a(u) \, du = 1$$
+$$
+\int_{-\infty}^{\infty} I_a(u) \, du = 1
+$$
 
-As $a \to 0^+$, the variance $\sigma^2 \to 0$. The distribution narrows infinitely while maintaining unit area, which defines the Dirac delta distribution $\delta(u)$:
+<p>As $a \to 0^+$, the variance $\sigma^2 \to 0$. The distribution narrows infinitely while maintaining unit area, which defines the Dirac delta distribution $\delta(u)$:</p>
 
-$$\lim_{a \to 0^+} I_a(u) = \delta(u) = \delta(t - \tau)$$
+$$
+\lim_{a \to 0^+} I_a(u) = \delta(u) = \delta(t - \tau)
+$$
 
-$\text{ }$
-$\text{ }$
+<br>
 
-$\textbf{Step 6}$: Reconstruction via the Sifting Property 
-
+<p>
+$\textbf{Step 6}$: Reconstruction via the Sifting Property<br>
 Substituting this result back into the full double integral:
+</p>
 
-$$x(t) = \int_{-\infty}^{\infty} x(\tau) \, \delta(t - \tau) \, d\tau$$
+$$
+x(t) = \int_{-\infty}^{\infty} x(\tau) \, \delta(t - \tau) \, d\tau
+$$
 
-By the sifting property of the Dirac delta distribution:
+<p>By the sifting property of the Dirac delta distribution:</p>
 
-$$\int_{-\infty}^{\infty} x(\tau) \, \delta(t - \tau) \, d\tau = x(t)$$
+$$
+\int_{-\infty}^{\infty} x(\tau) \, \delta(t - \tau) \, d\tau = x(t)
+$$
 
+</details>
 </details>
