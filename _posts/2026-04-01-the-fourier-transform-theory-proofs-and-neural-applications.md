@@ -526,4 +526,5 @@ X_s(\omega) = \sum_{n=-\infty}^{\infty} x(nT) e^{-inT\omega} = \frac{1}{T} \sum_
 }
 $$
 
-**Physical Takeaway:** Sampling a continuous signal $x(t)$ at intervals of $T$ scales its continuous Fourier spectrum by $\frac{1}{T}$ and replicates it periodically at integer multiples of the sampling frequency $\Omega = \frac{2\pi}{T}$. If the continuous signal $x(t)$ is band-limited to $|\omega| < \frac{\pi}{T}$ (the **Nyquist limit**), the shifted spectral copies remain mutually disjoint, allowing exact continuous reconstruction. If higher frequencies are present, adjacent copies overlap—producing **spectral aliasing**.
+**Physical Takeaway:** Sampling a continuous signal $x(t)$ at intervals of $T$ scales its continuous Fourier spectrum by $\frac{1}{T}$ and replicates it periodically at integer multiples of the sampling frequency $\Omega = \frac{2\pi}{T}$. 
+If the continuous signal $x(t)$ is band-limited to $|\omega| < \frac{\pi}{T}$ (the **Nyquist limit**), the shifted spectral copies remain mutually disjoint, allowing exact continuous reconstruction. If higher frequencies are present, adjacent copies overlap—producing **spectral aliasing**.
