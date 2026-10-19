@@ -251,7 +251,7 @@ We now evaluate the double integral using Gaussian convergence regularization.
 ## 2. Discrete Time Fourier Transform (DTFT)
 <a id="2-the-crucial-identity"></a>
 
-  We examine an essential identity that governs periodic harmonic sums in the sense of generalized functions (tempered distributions, $\mathcal{S}'(\mathbb{R})$):
+  We examine here first an essential identity that governs periodic harmonic sums in the sense of generalized functions (tempered distributions, $\mathcal{S}'(\mathbb{R})$):
 
   $$
   \boxed{
