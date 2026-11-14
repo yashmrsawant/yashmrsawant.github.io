@@ -961,14 +961,16 @@ a:hover {
 }
 
 .callout-header {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.84rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 0.55rem;
+  display: block;
+  font-size: 0.96rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.65rem;
+  line-height: 1.45;
+}
+
+.callout-header mjx-container {
+  text-transform: none !important;
 }
 
 .intuition-box .callout-header { color: var(--intuition-title); }
@@ -1252,14 +1254,18 @@ a:hover {
 }
 
 /* MathJax Container Formatting & Mobile Overflow */
-mjx-container, .MathJax {
-  overflow-x: auto !important;
-  overflow-y: hidden !important;
-  max-width: 100% !important;
-  padding: 0.3rem 0;
+mjx-container:not([display="true"]) {
+  overflow: visible !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  vertical-align: baseline;
 }
 
 mjx-container[jax="CHTML"][display="true"] {
+  display: block !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  max-width: 100% !important;
   background: var(--bg-secondary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);

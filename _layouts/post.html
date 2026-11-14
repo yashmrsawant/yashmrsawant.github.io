@@ -24,20 +24,12 @@ layout: default
     </div>
 
     <h1 class="post-title">{{ page.title }}</h1>
-
-    <div class="post-author-bar">
-      <div class="author-avatar-small">YS</div>
-      <div class="author-meta-text">
-        <span class="author-name">{{ site.author.name }}</span>
-        <span class="author-sub">{{ site.author.title }}</span>
-      </div>
-    </div>
   </header>
 
   <div class="series-callout">
     <div class="series-header">
       <span class="series-tag">Article Roadmap</span>
-      <h3 class="series-title">Key Sections & Mathematical Framework</h3>
+      <h3 class="series-title">Key Sections &amp; Mathematical Framework</h3>
     </div>
     <ol class="series-list">
       {% if page.outline %}
@@ -56,27 +48,10 @@ layout: default
   </div>
 
   <footer class="post-article-footer">
-    <div class="post-author-card">
-      <div class="author-avatar-large">YS</div>
-      <div class="author-card-info">
-        <h4 class="card-author-name">{{ site.author.name }}</h4>
-        <p class="card-author-bio">{{ site.author.bio }}</p>
-        <div class="card-author-links">
-          <a href="{{ '/about.html' | relative_url }}">Research & CV</a>
-          <span class="sep">•</span>
-          <a href="{{ '/assets/CV_yashmsawant.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a>
-          <span class="sep">•</span>
-          <a href="mailto:{{ site.author.email }}">Email</a>
-          <span class="sep">•</span>
-          <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </div>
-      </div>
-    </div>
-
     <nav class="post-pagination">
       {% if page.previous.url %}
         <a class="pagination-link prev" href="{{ page.previous.url | relative_url }}">
-          <span class="pagination-label">← Previous Post</span>
+          <span class="pagination-label">← Previous Article</span>
           <span class="pagination-title">{{ page.previous.title }}</span>
         </a>
       {% else %}
@@ -85,7 +60,7 @@ layout: default
 
       {% if page.next.url %}
         <a class="pagination-link next" href="{{ page.next.url | relative_url }}">
-          <span class="pagination-label">Next Post →</span>
+          <span class="pagination-label">Next Article →</span>
           <span class="pagination-title">{{ page.next.title }}</span>
         </a>
       {% endif %}

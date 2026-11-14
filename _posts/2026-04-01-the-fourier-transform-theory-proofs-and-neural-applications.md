@@ -169,7 +169,7 @@ x(t) = \int_{-\infty}^{\infty} X(f) e^{i 2\pi f t} \, df
 $$
 
 <div class="intuition-box" markdown="1">
-<div class="callout-header">💡 Why Opposite Signs ($-i$ vs. $+i$) in the Forward and Inverse Transforms?</div>
+<p class="callout-header">💡 Why Opposite Signs ($-i$ vs. $+i$) in the Forward and Inverse Transforms?</p>
 
 Think of the sign in the exponent as **unwinding vs. rewinding**:
 - **Analysis (Forward Transform, $e^{-i 2\pi f t}$):** If $x(t)$ contains a wave spinning forward at $e^{+i 2\pi f_0 t}$, multiplying by $e^{-i 2\pi f t}$ at $f = f_0$ **stops the rotation** ($e^{i 2\pi f_0 t} \cdot e^{-i 2\pi f_0 t} = e^0 = 1$), freezing the wave in place so the time integral can accumulate its constant complex amplitude $X(f_0)$.
@@ -184,19 +184,19 @@ Why does switching from $f$ to $\omega$ introduce a factor of $\frac{1}{2\pi}$? 
 
 Depending on how we bookkeep that $\frac{1}{2\pi}$ factor, two standard angular-frequency conventions arise:
 
-1. **Symmetric Unitary Convention (Quantum Mechanics & Functional Analysis):**  
-   We split the $\frac{1}{2\pi}$ factor symmetrically as $\frac{1}{\sqrt{2\pi}}$ on both the forward and inverse transforms so that both operators are **unitary isometries** on $L^2(\mathbb{R})$:
+**1. Symmetric Unitary Convention (Quantum Mechanics & Functional Analysis):**  
+We split the $\frac{1}{2\pi}$ factor symmetrically as $\frac{1}{\sqrt{2\pi}}$ on both the forward and inverse transforms so that both operators are **unitary isometries** on $L^2(\mathbb{R})$:
 
-   $$
-   X(\omega) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} x(t) e^{-i \omega t} \, dt, \qquad x(t) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} X(\omega) e^{i \omega t} \, d\omega
-   $$
+$$
+X(\omega) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} x(t) e^{-i \omega t} \, dt, \qquad x(t) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} X(\omega) e^{i \omega t} \, d\omega
+$$
 
-2. **Non-Unitary Angular Convention (Signal Processing & Linear Systems):**  
-   We keep the forward transform unscaled (so the impulse response $\delta(t)$ transforms to $1$) and place the entire $\frac{1}{2\pi}$ factor on the inverse integral:
+**2. Non-Unitary Angular Convention (Signal Processing & Linear Systems):**  
+We keep the forward transform unscaled (so the impulse response $\delta(t)$ transforms to $1$) and place the entire $\frac{1}{2\pi}$ factor on the inverse integral:
 
-   $$
-   X(\omega) = \int_{-\infty}^{\infty} x(t) e^{-i \omega t} \, dt, \qquad x(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} X(\omega) e^{i \omega t} \, d\omega
-   $$
+$$
+X(\omega) = \int_{-\infty}^{\infty} x(t) e^{-i \omega t} \, dt, \qquad x(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} X(\omega) e^{i \omega t} \, d\omega
+$$
 
 | Convention | Forward Transform | Inverse Transform | Primary Advantage |
 | :--- | :--- | :--- | :--- |
@@ -215,10 +215,10 @@ To ground these abstract symbols in real experimental data—such as an extracel
 - **$dt$**: Infinitesimal time integration step ($\text{s}$).
 - **$f$**: Linear oscillation frequency in cycles per second ($\text{Hz} = \text{s}^{-1}$).
 - **$\omega$**: Radian angular frequency ($\text{rad/s}$), related to linear frequency by $\omega = 2\pi f$.
-- **$X(f)$**: The complex Fourier transform evaluated at frequency $f$.
+- **$X(f)$**: The complex Fourier transform evaluated at frequency $f$. Its magnitude $\lvert X(f)\rvert$ represents the spectral amplitude density (in $\text{mV}/\text{Hz}$), and its argument $\arg(X(f))$ encodes the phase angle in radians.
 
 <div class="neuro-box" markdown="1">
-<div class="callout-header">🧠 Neuroscience Lens: Why Are the Units of $|X(f)|$ Equal to $\text{mV}/\text{Hz}$ Instead of $\text{mV}$?</div>
+<p class="callout-header">🧠 Neuroscience Lens: Why Are the Units of $\lvert X(f)\rvert$ Equal to $\text{mV}/\text{Hz}$ Instead of $\text{mV}$?</p>
 
 Look closely at the forward integral $X(f) = \int x(t) e^{-i 2\pi f t}\,dt$:
 - $x(t)$ has units of **millivolts ($\text{mV}$)**.
@@ -227,13 +227,13 @@ Look closely at the forward integral $X(f) = \int x(t) e^{-i 2\pi f t}\,dt$:
 
 Therefore, $X(f)$ has units of **$\text{mV}\cdot\text{s} = \frac{\text{mV}}{\text{Hz}}$**—an **amplitude spectral density**, not a voltage!
 
-**Intuition:** Just as a continuous probability density $p(x)$ only yields a probability when multiplied by an interval width $dx$, in a continuous spectrum no single mathematical point frequency $f$ carries finite voltage on its own. Instead, $|X(f)|\,df$ tells you how many millivolts of oscillation live inside the narrow frequency band $[f, f+df]$:
+**Intuition:** Just as a continuous probability density $p(x)$ only yields a probability when multiplied by an interval width $dx$, in a continuous spectrum no single mathematical point frequency $f$ carries finite voltage on its own. Instead, $\lvert X(f)\rvert\,df$ tells you how many millivolts of oscillation live inside the narrow frequency band $[f, f+df]$:
 
 $$
-\underbrace{|X(f)|}_{\left[\frac{\text{mV}}{\text{Hz}}\right]} \times \underbrace{df}_{[\text{Hz}]} = \text{Voltage contribution in band } [f, f+df] \;\; [\text{mV}]
+\underbrace{\lvert X(f)\rvert}_{\left[\frac{\text{mV}}{\text{Hz}}\right]} \times \underbrace{df}_{[\text{Hz}]} = \text{Voltage contribution in band } [f, f+df] \;\; [\text{mV}]
 $$
 
-In empirical electrophysiology (EEG/LFP), we often plot the **Power Spectral Density (PSD)**, which is proportional to $|X(f)|^2$ per unit recording time and carries units of **$\frac{\text{mV}^2}{\text{Hz}}$** (or $\frac{\mu\text{V}^2}{\text{Hz}}$), quantifying how the brain's electrical variance is distributed across frequency bands.
+In empirical electrophysiology (EEG/LFP), we often plot the **Power Spectral Density (PSD)**, which is proportional to $\lvert X(f)\rvert^2$ per unit recording time and carries units of **$\frac{\text{mV}^2}{\text{Hz}}$** (or $\frac{\mu\text{V}^2}{\text{Hz}}$), quantifying how the brain's electrical variance is distributed across frequency bands.
 </div>
 
 ---
@@ -345,7 +345,7 @@ $$
 Assume that $x:\mathbb{R}\to\mathbb{C}$ is an absolutely integrable function ($x\in L^1(\mathbb{R})$), i.e.,
 
 $$
-\int_{-\infty}^{\infty}|x(t)|\,dt < \infty.
+\int_{-\infty}^{\infty}\lvert x(t)\rvert\,dt < \infty.
 $$
 
 Interchanging the order of integration formally using Fubini's theorem (which we justify rigorously via the Gaussian regularization factor introduced in Step 2) gives:
@@ -528,30 +528,30 @@ At first glance, this equation can feel paradoxical: **If $\delta(x - x_0)$ shoo
 
 We can make this 100% transparent by looking at the nascent Gaussian approximation $\delta_\sigma(x - x_0) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-(x - x_0)^2 / (2\sigma^2)}$ as $\sigma \to 0^+$ and **zooming in around $x = x_0$**:
 
-1. **The Spike Goes to $\infty$, But Its Area Is Locked at $1$:**  
-   At $x = x_0$, the peak height of $\delta_\sigma(x - x_0)$ is $\frac{1}{\sqrt{2\pi}\,\sigma}$, which grows toward $+\infty$ as $\sigma \to 0^+$. However, nearly all of its mass is confined within a tiny window $[x_0 - 3\sigma, x_0 + 3\sigma]$ of width $\propto \sigma \to 0$. Height $\propto \frac{1}{\sigma}$ times width $\propto \sigma$ keeps the total area under $\delta_\sigma(x - x_0)$ identically equal to **$1$** for every $\sigma > 0$:
+#### 1. The Spike Goes to $\infty$, But Its Area Is Locked at $1$
+At $x = x_0$, the peak height of $\delta_\sigma(x - x_0)$ is $\frac{1}{\sqrt{2\pi}\,\sigma}$, which grows toward $+\infty$ as $\sigma \to 0^+$. However, nearly all of its mass is confined within a tiny window $[x_0 - 3\sigma, x_0 + 3\sigma]$ of width $\propto \sigma \to 0$. Height $\propto \frac{1}{\sigma}$ times width $\propto \sigma$ keeps the total area under $\delta_\sigma(x - x_0)$ identically equal to **$1$** for every $\sigma > 0$:
 
-   $$
-   \int_{-\infty}^{\infty} \delta_\sigma(x - x_0) \, dx = 1.
-   $$
+$$
+\int_{-\infty}^{\infty} \delta_\sigma(x - x_0) \, dx = 1.
+$$
 
-2. **Zoom In Around $x_0$: The Curvy Function $f(x)$ Becomes a Flat Constant Line $f(x_0)$!**  
-   Outside the tiny interval $[x_0 - 3\sigma, x_0 + 3\sigma]$, $\delta_\sigma(x - x_0) \approx 0$, so all variations of $f(x)$ away from $x_0$ are multiplied by zero and wiped out.  
-   Now **zoom in horizontally** to the microscopic neighborhood $[x_0 - 3\sigma, x_0 + 3\sigma]$ where the spike lives: because $f(x)$ is continuous at $x_0$, **any smooth curve looks completely flat—like the horizontal constant line $y = f(x_0)$—when you zoom in close enough!**  
-   Inside that narrow window, multiplying the curve $f(x)$ by the spike $\delta_\sigma(x - x_0)$ is indistinguishable from multiplying the **constant number $f(x_0)$** by $\delta_\sigma(x - x_0)$:
+#### 2. Zoom In Around $x_0$: The Curvy Function $f(x)$ Becomes a Flat Constant Line $f(x_0)$
+Outside the tiny interval $[x_0 - 3\sigma, x_0 + 3\sigma]$, $\delta_\sigma(x - x_0) \approx 0$, so all variations of $f(x)$ away from $x_0$ are multiplied by zero and wiped out.  
+Now **zoom in horizontally** to the microscopic neighborhood $[x_0 - 3\sigma, x_0 + 3\sigma]$ where the spike lives: because $f(x)$ is continuous at $x_0$, **any smooth curve looks completely flat—like the horizontal constant line $y = f(x_0)$—when you zoom in close enough!**  
+Inside that narrow window, multiplying the curve $f(x)$ by the spike $\delta_\sigma(x - x_0)$ is indistinguishable from multiplying the **constant number $f(x_0)$** by $\delta_\sigma(x - x_0)$:
 
-   $$
-   f(x) \, \delta_\sigma(x - x_0) \;\approx\; f(x_0) \, \delta_\sigma(x - x_0) \qquad \text{for } |x - x_0| \lesssim 3\sigma.
-   $$
+$$
+f(x) \, \delta_\sigma(x - x_0) \;\approx\; f(x_0) \, \delta_\sigma(x - x_0) \qquad \text{for } \lvert x - x_0\rvert \lesssim 3\sigma.
+$$
 
-3. **Constant $f(x_0)$ Times Unit Area $1$ Equals $f(x_0)$:**  
-   Because $f(x_0)$ is just a constant number, it pulls straight out in front of the integral! The remaining integral is simply the unit area ($= 1$) of the delta pulse:
+#### 3. Constant $f(x_0)$ Times Unit Area $1$ Equals $f(x_0)$
+Because $f(x_0)$ is just a constant number, it pulls straight out in front of the integral! The remaining integral is simply the unit area ($= 1$) of the delta pulse:
 
-   $$
-   \int_{-\infty}^{\infty} f(x) \, \delta_\sigma(x - x_0) \, dx \;\approx\; \int_{-\infty}^{\infty} \underbrace{f(x_0)}_{\text{Constant}} \delta_\sigma(x - x_0) \, dx \;=\; f(x_0) \underbrace{\int_{-\infty}^{\infty} \delta_\sigma(x - x_0) \, dx}_{\text{Area } = \; 1} \;=\; f(x_0) \times 1 \;=\; f(x_0).
-   $$
+$$
+\int_{-\infty}^{\infty} f(x) \, \delta_\sigma(x - x_0) \, dx \;\approx\; \int_{-\infty}^{\infty} \underbrace{f(x_0)}_{\text{Constant}} \delta_\sigma(x - x_0) \, dx \;=\; f(x_0) \underbrace{\int_{-\infty}^{\infty} \delta_\sigma(x - x_0) \, dx}_{\text{Area } = \; 1} \;=\; f(x_0) \times 1 \;=\; f(x_0).
+$$
 
-   In the limit $\sigma \to 0^+$, the approximation becomes exact! Even though the peak height of the product curve $f(x)\,\delta_\sigma(x - x_0)$ climbs to $f(x_0) \cdot \frac{1}{\sqrt{2\pi}\sigma} \to \infty$, **the shaded area under the product curve is simply $f(x_0) \times 1 = f(x_0)$**.
+In the limit $\sigma \to 0^+$, the approximation becomes exact! Even though the peak height of the product curve $f(x)\,\delta_\sigma(x - x_0)$ climbs to $f(x_0) \cdot \frac{1}{\sqrt{2\pi}\sigma} \to \infty$, **the shaded area under the product curve is simply $f(x_0) \times 1 = f(x_0)$**.
 
 <div class="sifting-widget" id="siftingWidget">
   <div class="sifting-widget-header">
@@ -1166,7 +1166,7 @@ x_s(t) = \sum_{n=-\infty}^{\infty} x(nT) \, \delta(t - nT)
 $$
 
 <div class="intuition-box" markdown="1">
-<div class="callout-header">💡 Physical Intuition: The Strobe-Light Bridge</div>
+<p class="callout-header">💡 Physical Intuition: The Strobe-Light Bridge</p>
 
 Think of $s(t) = \sum_{n=-\infty}^{\infty} \delta(t - nT)$ as an ideal **stroboscope** that flashes an infinitely brief, unit-energy pulse of light every $T$ seconds in a dark room:
 - Between flashes ($t \neq nT$), $x_s(t) = 0$.
@@ -1240,7 +1240,7 @@ $$
 $$
 
 <div class="math-highlight-box" markdown="1">
-<div class="callout-header">✨ The Deep Symmetry: A Comb in Time Is a Comb in Frequency</div>
+<p class="callout-header">✨ The Deep Symmetry: A Comb in Time Is a Comb in Frequency</p>
 
 Notice what the left-hand side actually is: because $\int_{-\infty}^{\infty} \delta(t - nT) e^{-i\omega t}\,dt = e^{-inT\omega}$, the sum $\sum_{n=-\infty}^{\infty} e^{-inT\omega}$ is the **Continuous-Time Fourier Transform of the time-domain Dirac comb** $s(t) = \sum_{n=-\infty}^{\infty} \delta(t - nT)$!
 
@@ -1414,28 +1414,28 @@ Let us track the geometry of $S_N(\omega)$ as the number of samples grows ($N \t
 
 Why does each Dirac delta in the limit carry a weight of $\frac{2\pi}{T}$ rather than $1$? We can see this both **exactly** (by term-by-term integration) and **geometrically** (by height $\times$ width scaling):
 
-1. **Exact Proof via Orthogonality over One Period $\left[-\frac{\pi}{T}, \frac{\pi}{T}\right]$:**  
-   Integrate the finite sum $S_N(\omega)$ over one fundamental period centered at $\omega = 0$:
+**Method A — Exact Proof via Orthogonality over One Period $\left[-\frac{\pi}{T}, \frac{\pi}{T}\right]$:**  
+Integrate the finite sum $S_N(\omega)$ over one fundamental period centered at $\omega = 0$:
 
-   $$
-   \begin{aligned}
-   \int_{-\pi/T}^{\pi/T} S_N(\omega) \, d\omega
-   &= \sum_{n=-N}^{N} \int_{-\pi/T}^{\pi/T} e^{-inT\omega} \, d\omega \\
-   &= \underbrace{\int_{-\pi/T}^{\pi/T} 1 \, d\omega}_{n = 0 \text{ term}} \; + \; \sum_{\substack{n=-N \\ n \neq 0}}^{N} \underbrace{\left[ \frac{e^{-inT\omega}}{-inT} \right]_{-\pi/T}^{\pi/T}}_{= \, 0 \text{ (full cycles)}} \\
-   &= \frac{2\pi}{T}.
-   \end{aligned}
-   $$
+$$
+\begin{aligned}
+\int_{-\pi/T}^{\pi/T} S_N(\omega) \, d\omega
+&= \sum_{n=-N}^{N} \int_{-\pi/T}^{\pi/T} e^{-inT\omega} \, d\omega \\
+&= \underbrace{\int_{-\pi/T}^{\pi/T} 1 \, d\omega}_{n = 0 \text{ term}} \; + \; \sum_{\substack{n=-N \\ n \neq 0}}^{N} \underbrace{\left[ \frac{e^{-inT\omega}}{-inT} \right]_{-\pi/T}^{\pi/T}}_{= \, 0 \text{ (full cycles)}} \\
+&= \frac{2\pi}{T}.
+\end{aligned}
+$$
 
-   Every oscillatory mode $n \neq 0$ completes an exact integer number of cycles over $\left[-\frac{\pi}{T}, \frac{\pi}{T}\right]$ and integrates to **zero**! Only the constant $n=0$ term ($e^0 = 1$) contributes, yielding $1 \times \text{interval width} = \frac{2\pi}{T}$, **independently of $N$**.
+Every oscillatory mode $n \neq 0$ completes an exact integer number of cycles over $\left[-\frac{\pi}{T}, \frac{\pi}{T}\right]$ and integrates to **zero**! Only the constant $n=0$ term ($e^0 = 1$) contributes, yielding $1 \times \text{interval width} = \frac{2\pi}{T}$, **independently of $N$**.
 
-2. **Geometric Scaling Intuition ($\text{Height} \times \text{Width}$):**  
-   Notice that the peak height of $S_N(0)$ is $(2N+1)$ and the characteristic half-width from the peak to the first zero is $\frac{2\pi}{(2N+1)T}$. Multiplying height by characteristic width:
+**Method B — Geometric Scaling Intuition ($\text{Height} \times \text{Width}$):**  
+Notice that the peak height of $S_N(0)$ is $(2N+1)$ and the characteristic half-width from the peak to the first zero is $\frac{2\pi}{(2N+1)T}$. Multiplying height by characteristic width:
 
-   $$
-   \text{Peak Height} \times \text{Half-Width} = (2N + 1) \times \frac{2\pi}{(2N + 1)T} = \frac{2\pi}{T}.
-   $$
+$$
+\text{Peak Height} \times \text{Half-Width} = (2N + 1) \times \frac{2\pi}{(2N + 1)T} = \frac{2\pi}{T}.
+$$
 
-   The factor of $(2N+1)$ cancels out! Thus, in the distributional limit $N \to \infty$, the Dirichlet kernel converges to a periodic Dirac comb with impulse weight $\frac{2\pi}{T}$:
+The factor of $(2N+1)$ cancels out! Thus, in the distributional limit $N \to \infty$, the Dirichlet kernel converges to a periodic Dirac comb with impulse weight $\frac{2\pi}{T}$:
 
 $$
 \boxed{
@@ -1535,7 +1535,7 @@ Look at the right-hand side of our boxed theorem:
 - For **$k = 0$**, we get $\frac{1}{T} X(\omega)$—the **true analog spectrum** of our continuous signal, centered at $\omega = 0$ and scaled in amplitude by $\frac{1}{T} = f_s$.
 - For **$k = \pm 1, \pm 2, \pm 3, \dots$**, we get **infinite periodic clones (replicas)** of the continuous spectrum $X(\omega)$, shifted and centered at every integer multiple of the sampling rate $\omega_k = \frac{2\pi k}{T}$ (or $f = k f_s$)!
 
-Suppose the continuous signal $x(t)$ is **band-limited** to a maximum angular frequency $\omega_{\max}$ (so $X(\omega) = 0$ for $|\omega| > \omega_{\max}$). When do the shifted clones stay separate, and when do they collide?
+Suppose the continuous signal $x(t)$ is **band-limited** to a maximum angular frequency $\omega_{\max}$ (so $X(\omega) = 0$ for $\lvert\omega\rvert > \omega_{\max}$). When do the shifted clones stay separate, and when do they collide?
 
 - **The $k=0$ baseband spectrum** spans $[-\omega_{\max}, +\omega_{\max}]$.
 - **The $k=1$ replica** (centered at $\frac{2\pi}{T}$) extends leftward down to $\frac{2\pi}{T} - \omega_{\max}$.
@@ -1610,15 +1610,15 @@ $$
 </figure>
 
 <div class="neuro-box" markdown="1">
-<div class="callout-header">🧠 Practical Takeaway: Aliasing in Electrophysiology (EEG/LFP) &amp; fMRI BOLD</div>
+<p class="callout-header">🧠 Practical Takeaway: Aliasing in Electrophysiology (EEG/LFP) &amp; fMRI BOLD</p>
 
 Our spectral replication formula $X_s(f) = f_s \sum_{k=-\infty}^{\infty} X(f - k f_s)$ explains two critical phenomena in empirical neuroscience:
 
-1. **Phantom Oscillations in LFP / EEG Recordings:**  
-   Suppose you sample a cortical electrode at $f_s = 200\text{ Hz}$ ($T = 5\text{ ms}$), giving a Nyquist limit of $f_{\text{Nyquist}} = \frac{f_s}{2} = 100\text{ Hz}$. If the raw analog signal contains high-frequency **muscle (EMG) activity or extracellular spike energy at $f = 185\text{ Hz}$**, what happens in the sampled data?  
-   The $k = 1$ replica shifts $+185\text{ Hz}$ to $185 - 200 = -15\text{ Hz}$, while the $k = -1$ replica shifts $-185\text{ Hz}$ to $-185 + 200 = +15\text{ Hz}$!  
-   In your digital spectrum, that $185\text{ Hz}$ artifact appears as a **phantom $15\text{ Hz}$ Beta-band oscillation**! Once digitized, no software filter can distinguish the aliased $185\text{ Hz}$ energy from genuine $15\text{ Hz}$ cortical Beta activity. This is why every electrophysiology amplifier passes the analog voltage $x(t)$ through a hardware **analog anti-aliasing low-pass filter** *before* the ADC samples the signal.
+**1. Phantom Oscillations in LFP / EEG Recordings:**  
+Suppose you sample a cortical electrode at $f_s = 200\text{ Hz}$ ($T = 5\text{ ms}$), giving a Nyquist limit of $f_{\text{Nyquist}} = \frac{f_s}{2} = 100\text{ Hz}$. If the raw analog signal contains high-frequency **muscle (EMG) activity or extracellular spike energy at $f = 185\text{ Hz}$**, what happens in the sampled data?  
+The $k = 1$ replica shifts $+185\text{ Hz}$ to $185 - 200 = -15\text{ Hz}$, while the $k = -1$ replica shifts $-185\text{ Hz}$ to $-185 + 200 = +15\text{ Hz}$!  
+In your digital spectrum, that $185\text{ Hz}$ artifact appears as a **phantom $15\text{ Hz}$ Beta-band oscillation**! Once digitized, no software filter can distinguish the aliased $185\text{ Hz}$ energy from genuine $15\text{ Hz}$ cortical Beta activity. This is why every electrophysiology amplifier passes the analog voltage $x(t)$ through a hardware **analog anti-aliasing low-pass filter** *before* the ADC samples the signal.
 
-2. **Physiological Aliasing in fMRI BOLD Time Series:**  
-   In functional MRI, whole-brain volumes are typically acquired every $TR = T = 2.0\text{ s}$, corresponding to a sampling rate of $f_s = 0.5\text{ Hz}$ and a Nyquist limit of $f_{\text{Nyquist}} = 0.25\text{ Hz}$. While the sluggish hemodynamic response acts as a natural low-pass filter for neural activity, physiological **cardiac pulsations ($\sim 1.0\text{–}1.2\text{ Hz}$)** and **respiration ($\sim 0.25\text{–}0.35\text{ Hz}$)** lie above $f_{\text{Nyquist}} = 0.25\text{ Hz}$. By spectral replication, cardiac and respiratory fluctuations fold directly into the slow resting-state BOLD frequency band ($0.01\text{–}0.1\text{ Hz}$)—motivating explicit physiological noise modeling and linear time-invariant (LTI) hemodynamic observation models.
+**2. Physiological Aliasing in fMRI BOLD Time Series:**  
+In functional MRI, whole-brain volumes are typically acquired every $TR = T = 2.0\text{ s}$, corresponding to a sampling rate of $f_s = 0.5\text{ Hz}$ and a Nyquist limit of $f_{\text{Nyquist}} = 0.25\text{ Hz}$. While the sluggish hemodynamic response acts as a natural low-pass filter for neural activity, physiological **cardiac pulsations ($\sim 1.0\text{–}1.2\text{ Hz}$)** and **respiration ($\sim 0.25\text{–}0.35\text{ Hz}$)** lie above $f_{\text{Nyquist}} = 0.25\text{ Hz}$. By spectral replication, cardiac and respiratory fluctuations fold directly into the slow resting-state BOLD frequency band ($0.01\text{–}0.1\text{ Hz}$)—motivating explicit physiological noise modeling and linear time-invariant (LTI) hemodynamic observation models.
 </div>

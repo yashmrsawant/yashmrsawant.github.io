@@ -7,7 +7,7 @@
           <span class="footer-title">{{ site.title }}</span>
         </div>
         <p class="footer-desc">
-          Computational Neuroscience, Neural Dynamics, Signal Processing &amp; Mathematical Sciences — by {{ site.author.name }} (IISc Bangalore).
+          Exploring the fundamental principles through which the nature of intelligence is defined in our universe—through first-principles mathematics, computational neuroscience, signal processing, neural dynamics, and NeuroAI.
         </p>
       </div>
 
@@ -16,31 +16,23 @@
         <ul class="footer-links">
           <li><a href="{{ '/' | relative_url }}">Home</a></li>
           <li><a href="{{ '/archive.html' | relative_url }}">Articles Archive</a></li>
-          <li><a href="{{ '/about.html' | relative_url }}">About, Research &amp; CV</a></li>
-          <li><a href="{{ '/assets/CV_yashmsawant.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">Curriculum Vitae (PDF)</a></li>
+          <li><a href="{{ '/about.html' | relative_url }}">About Scith</a></li>
         </ul>
       </div>
 
       <div class="footer-links-group">
-        <h4 class="footer-heading">Connect</h4>
+        <h4 class="footer-heading">Domains</h4>
         <ul class="footer-links">
-          <li>
-            <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer">
-              GitHub (@{{ site.author.github }})
-            </a>
-          </li>
-          <li>
-            <a href="mailto:{{ site.author.email }}">
-              {{ site.author.email }}
-            </a>
-          </li>
+          <li><a href="{{ '/archive.html' | relative_url }}">Signal Processing</a></li>
+          <li><a href="{{ '/archive.html' | relative_url }}">Computational Neuroscience</a></li>
+          <li><a href="{{ '/archive.html' | relative_url }}">Neural Dynamics &amp; NeuroAI</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
       <p class="copyright">
-        &copy; {{ 'now' | date: "%Y" }} {{ site.author.name }}. Published on GitHub Pages.
+        &copy; {{ 'now' | date: "%Y" }} {{ site.title }}. First-Principles Mathematical &amp; Scientific Expositions.
       </p>
       <a href="#top" class="back-to-top" aria-label="Back to top">
         <span>Back to top</span>
@@ -55,7 +47,6 @@
   <!-- Interactive Scripts for Theme Toggle and Mobile Menu -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Theme Toggle logic
       var themeToggleBtn = document.getElementById('themeToggle');
       if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', function() {
@@ -66,7 +57,6 @@
         });
       }
 
-      // Mobile Menu Toggle logic
       var mobileNavToggle = document.getElementById('mobileNavToggle');
       var siteNav = document.getElementById('siteNav');
       if (mobileNavToggle && siteNav) {

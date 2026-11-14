@@ -1,21 +1,18 @@
 title: Scith
-tagline: Mathematical Sciences, Neural Dynamics & NeuroAI
+tagline: Exploring the Fundamental Principles of Intelligence
 description: >-
-  Scientific expositions and research by Yash M. Sawant (Ph.D. in Mathematical Sciences, Indian Institute of Science, Bangalore).
-  Exploring computational neuroscience, neural dynamics, signal processing, and probabilistic machine learning.
+  Welcome to Scith. Here, we explore the fundamental principles through which the nature of intelligence is defined in our universe—through first-principles mathematical expositions and research at the intersection of computational neuroscience, signal processing, neural dynamics, and probabilistic machine learning (NeuroAI).
 url: "https://yashmrsawant.github.io"
 baseurl: ""
 
-# Author information
+# Author / Publication information
 author:
-  name: Yash M. Sawant
-  title: Ph.D. in Mathematical Sciences · IISc Bangalore
-  email: sawantyashm@gmail.com
+  name: Scith
+  title: Mathematical Sciences · Computational Neuroscience · NeuroAI
+  email: yashmrsawant4colab@gmail.com
   github: yashmrsawant
-  location: Bangalore, India
   bio: >-
-    Computational neuroscience researcher studying how neural connectivity and dynamics support cognition.
-    Combining biologically constrained neural models with statistical and machine learning methods at the Indian Institute of Science (IISc), Bangalore.
+    Exploring the fundamental principles through which the nature of intelligence is defined in our universe—bridging first-principles mathematics, computational neuroscience, signal processing, neural dynamics, and probabilistic machine learning (NeuroAI).
 
 # Navigation
 header_pages:
