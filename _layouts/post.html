@@ -21,18 +21,6 @@ layout: default
         </svg>
         {{ page.date | date: "%B %-d, %Y" }}
       </span>
-      <span class="reading-time">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <polyline points="12 6 12 12 16 14"></polyline>
-        </svg>
-        {% assign words = content | number_of_words %}
-        {% if words < 360 %}
-          2 min read
-        {% else %}
-          {{ words | divided_by: 180 }} min read
-        {% endif %}
-      </span>
     </div>
 
     <h1 class="post-title">{{ page.title }}</h1>
@@ -48,8 +36,8 @@ layout: default
 
   <div class="series-callout">
     <div class="series-header">
-      <span class="series-tag">Article Outline</span>
-      <h3 class="series-title">Key Sections & Topics Covered</h3>
+      <span class="series-tag">Article Roadmap</span>
+      <h3 class="series-title">Key Sections & Mathematical Framework</h3>
     </div>
     <ol class="series-list">
       {% if page.outline %}
@@ -58,7 +46,7 @@ layout: default
         {% endfor %}
       {% else %}
         <li><a href="#1-the-continuous-time-fourier-transform-ctft">The Continuous-Time Fourier Transform (CTFT)</a></li>
-        <li><a href="#2-discrete-time-fourier-transform-dtft">Discrete Time Fourier Transform (DTFT)</a></li>
+        <li><a href="#2-discrete-time-fourier-transform-dtft">Discrete-Time Fourier Transform (DTFT)</a></li>
       {% endif %}
     </ol>
   </div>
@@ -74,9 +62,13 @@ layout: default
         <h4 class="card-author-name">{{ site.author.name }}</h4>
         <p class="card-author-bio">{{ site.author.bio }}</p>
         <div class="card-author-links">
-          <a href="mailto:{{ site.author.email }}">Email Discussion</a>
+          <a href="{{ '/about.html' | relative_url }}">Research & CV</a>
           <span class="sep">•</span>
-          <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+          <a href="{{ '/assets/CV_yashmsawant.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a>
+          <span class="sep">•</span>
+          <a href="mailto:{{ site.author.email }}">Email</a>
+          <span class="sep">•</span>
+          <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
       </div>
     </div>

@@ -1,20 +1,21 @@
 title: Scith
-tagline: Exploring scientific ideas with mathematical tools
+tagline: Mathematical Sciences, Neural Dynamics & NeuroAI
 description: >-
-  Personal scientific and mathematical blog by Yash M Sawant, PhD Candidate in Mathematical Sciences.
-  Covering signal processing, computational neuroscience, brain modelling, and deep learning.
+  Scientific expositions and research by Yash M. Sawant (Ph.D. in Mathematical Sciences, Indian Institute of Science, Bangalore).
+  Exploring computational neuroscience, neural dynamics, signal processing, and probabilistic machine learning.
 url: "https://yashmrsawant.github.io"
 baseurl: ""
 
 # Author information
 author:
-  name: Yash M Sawant
-  title: PhD Candidate in Mathematical Sciences
-  email: yashmrsawant4colab@gmail.com
+  name: Yash M. Sawant
+  title: Ph.D. in Mathematical Sciences · IISc Bangalore
+  email: sawantyashm@gmail.com
   github: yashmrsawant
+  location: Bangalore, India
   bio: >-
-    PhD Candidate in Mathematical Sciences exploring the intersection of signal processing,
-    computational neuroscience, brain modelling, and deep learning.
+    Computational neuroscience researcher studying how neural connectivity and dynamics support cognition.
+    Combining biologically constrained neural models with statistical and machine learning methods at the Indian Institute of Science (IISc), Bangalore.
 
 # Navigation
 header_pages:

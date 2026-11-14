@@ -1,7 +1,9 @@
 <a href="{{ post.url | relative_url }}" class="post-card">
   <div class="post-card-meta">
     {% if post.categories %}
-      <span class="post-category-tag">{{ post.categories | first }}</span>
+      {% for cat in post.categories %}
+        <span class="post-category-tag">{{ cat }}</span>
+      {% endfor %}
     {% endif %}
     <span class="post-date">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -12,32 +14,20 @@
       </svg>
       {{ post.date | date: "%B %-d, %Y" }}
     </span>
-    <span class="reading-time">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="10"></circle>
-        <polyline points="12 6 12 12 16 14"></polyline>
-      </svg>
-      {% assign words = post.content | number_of_words %}
-      {% if words < 360 %}
-        1 min read
-      {% else %}
-        {{ words | divided_by: 180 }} min read
-      {% endif %}
-    </span>
   </div>
 
   <h3 class="post-card-title">{{ post.title }}</h3>
 
   <p class="post-card-excerpt">
     {% if post.excerpt %}
-      {{ post.excerpt | strip_html | truncatewords: 30 }}
+      {{ post.excerpt | strip_html | truncatewords: 34 }}
     {% else %}
-      {{ post.content | strip_html | truncatewords: 30 }}
+      {{ post.content | strip_html | truncatewords: 34 }}
     {% endif %}
   </p>
 
   <span class="post-card-readmore">
-    <span>Read article</span>
+    <span>Read exposition</span>
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
       <line x1="5" y1="12" x2="19" y2="12"></line>
       <polyline points="12 5 19 12 12 19"></polyline>
